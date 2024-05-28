@@ -1,0 +1,39 @@
+.big_main-inout{
+    width: 925px;
+    height: 61px;
+    padding-left:82px;
+    padding-right: 60px;
+    gap: 16px;
+    border-radius: 34px ;
+    border: 3px solid #C1C1C1;
+    font-size: 21px;
+}
+.big_main-inout::placeholder{
+    color: #A59F9F;
+    font-family: Inter;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 25.41px;
+}
+.input-main{
+    width: 925px;
+    height: 61px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 15px ;
+}
+.search-block{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 44px;
+    top: 33px;
+}
+.search-img{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 42px;
+    top: 18px;
+}

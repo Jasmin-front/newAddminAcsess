@@ -1,0 +1,64 @@
+header{
+    width: 1440px;
+    height: 130px;
+    padding: 46px 101px 32px 107px;
+    margin: 0 auto;
+}
+.header-main{
+    display: flex;
+    justify-content: space-between;
+}
+.header-left{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+.header-middle{
+    display: flex;
+    list-style: none;
+    gap: 46px;
+    align-items: center;
+}
+.header-round{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #D9D9D9;
+}
+
+.moon{
+    width: 100%;
+}
+.moon-block{
+    Width :24px;
+    Height: 24px;
+}
+.link-no-underline{
+    text-decoration: none;
+    font-family: Inter;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 25.41px;
+    text-align: left;
+    color: #0E60AE;
+
+}
+.header-right{
+    display: flex;
+    gap: 33px;
+    align-items: center;
+}
+.header-btn{
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29.05px;
+    text-align: left;
+    color: #00509D;
+    border: none;
+    background: #F1F6FC;
+
+}
+.active-link {
+    color: #FFA011;
+}
