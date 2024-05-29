@@ -34,8 +34,39 @@ body {
   color: black;
   transition: 0.5s;
   height: 60px;
+  cursor: pointer;
 }
 
 .btn:hover {
-  background-color: orange;
+  background-color: #0E60AE;
+
+}
+
+.btn_grandient {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 40px 15px 40px;
+  gap: 10px;
+  border-radius: 16px ;
+  cursor: pointer;
+  color: white;
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
+  border: 1px solid rgba(193, 193, 193, 1);
+  background: linear-gradient(165.09deg, #1D8FE2 30.44%, #102FD2 90.34%);
+}
+.btn_grandient:hover{
+  background: #0E60AE;
+
+}
+
+.form-control-btns{
+  margin-top: 126px;
+  margin-left: 425px;
+  display: flex;
+  margin-bottom: 37px;
+  gap: 12px;
 }

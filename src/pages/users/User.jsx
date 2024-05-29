@@ -11,7 +11,6 @@ const User = () => {
 	const dispatch = useDispatch();
 	const { user } = useSelector(state => state.getUsers);
 	const { usersId } = useParams();
-
 	useEffect(() => {
 		dispatch(getDataUserId(usersId));
 	}, [dispatch, usersId]);

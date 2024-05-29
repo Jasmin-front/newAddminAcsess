@@ -131,11 +131,7 @@
     justify-content: center;
     align-items: center;
 }
-.trash:hover{
-    border-radius: 50%;
-    background: #0E60AE;
 
-}
 .addAnketa-drop-down{
     display: flex;
     justify-content: space-between;
