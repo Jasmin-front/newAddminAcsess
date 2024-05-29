@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import moon from '../../assets/header/moon.png';
 import together from '../../assets/header/Together.png'
 import './header.css';
+import {useModal} from "../reusable/Modal/useModal.js";
+import ModalConfirm from "../reusable/modalConfirm/ModalConfirm.jsx";
 
 
 const Header = ({ onLogout }) => {
     const location = useLocation();
     const navigate = useNavigate();
-
+    const {open, closeModal, openModal} = useModal()
     const handleLogout = () => {
         onLogout();
         navigate('/');
     };
+
 
     return (
         <header>
@@ -45,11 +48,16 @@ const Header = ({ onLogout }) => {
                     </div>
                     <button
                         className='header-btn'
-                        onClick={handleLogout}
+                        onClick={openModal}
                     >
                         Выйти
                     </button>
                 </div>
+                {open && <ModalConfirm
+                    title={'Вы уверены, что хотите выйти?'}
+                    closeModal={closeModal}
+                    confirm={handleLogout}
+                />}
             </ul>
         </header>
     );

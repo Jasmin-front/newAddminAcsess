@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getDataUsers, deleteUserid } from "../../features/getDataUser/getInfoUserReducer.js";
 import Input from "../../components/reusable/Input/Input.jsx";
-import ModalDelete from "../../components/reusable/ModalDelete/ModalDelete.jsx";
+import ModalConfirm from "../../components/reusable/modalConfirm/ModalConfirm.jsx";
 import trash from '../../assets/Home/trash.png';
 import './Home.css';
 
@@ -85,9 +85,10 @@ const Home = () => {
                     </div>
                 )}
                 {showModal && (
-                    <ModalDelete
+                    <ModalConfirm
                         closeModal={closeModalDelete}
-                        handleDelete={handleDeleteUser}
+                        confirm={handleDeleteUser}
+                        title={'Вы уверены, что хотите удалить?'}
                     />
                 )}
             </div>

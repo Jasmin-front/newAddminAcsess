@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import './ModalDelete.css';
+import './ModalConfirm.css';
 
-const ModalDelete = ({ closeModal, handleDelete }) => {
+const ModalConfirm = ({ title, closeModal, confirm }) => {
     useEffect(() => {
         document.body.classList.add('no-scroll');
 
@@ -14,15 +14,15 @@ const ModalDelete = ({ closeModal, handleDelete }) => {
         <div className='modal-background' >
             <div className='modal-delete' onClick={(e) => e.stopPropagation()}>
                 <div className='modal-delete-title'>
-                    <p>Вы уверены, что хотите удалить?</p>
+                    <p>{title}</p>
                 </div>
                 <div className='delete-btns'>
                     <button onClick={closeModal} className='btn-delete'>Нет</button>
-                    <button onClick={handleDelete} className='btn-delete'>Да</button>
+                    <button onClick={confirm} className='btn-delete'>Да</button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default ModalDelete;
+export default ModalConfirm;

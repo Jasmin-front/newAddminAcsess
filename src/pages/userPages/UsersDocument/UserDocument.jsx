@@ -1,4 +1,3 @@
-// UserDocument.jsx
 
 import React from "react";
 import "./UserDocument.css";
@@ -12,10 +11,7 @@ const UserDocument = () => {
     const { open, openModal, closeModal } = useModal();
 
     const handleFileUpload = (formData) => {
-        // Here you can dispatch an action to upload the file or handle the upload logic
-        // For example, you can dispatch an action to upload the file to the server
-        // dispatch(uploadFile(formData));
-        // After successful upload, close the modal
+
         closeModal();
     };
 
@@ -28,7 +24,7 @@ const UserDocument = () => {
                 </button>
             </div>
             <Modal title={"Create new document"} show={open} onClose={closeModal}>
-                <AddUserDocumentForm onSubmit={handleFileUpload} />
+                <AddUserDocumentForm onClose={closeModal} onSubmit={handleFileUpload} />
             </Modal>
         </div>
     );

@@ -1,6 +1,6 @@
 import './UserDocument.css'
 import {useRef, useState} from "react";
-const AddUserDocumentForm = () => {
+const AddUserDocumentForm = ({onClose}) => {
     const inpFileRef = useRef()
     const [files,setFiles] = useState([])
     const handleAddFile  = () => {
@@ -20,7 +20,7 @@ const AddUserDocumentForm = () => {
             }} hidden ref={inpFileRef}/>
             <div className='form-control-btns'>
                 <button className='btns-document btn' >Submite</button>
-                <button className='btns-document btn'>Cancel</button>
+                <button onClick={onClose}  className='btns-document btn'>Cancel</button>
             </div>
         </div>
     );
