@@ -1,21 +1,19 @@
 .user-profile {
-    width: 1241px;
-    padding: 16px 15px;
-    border-radius: 8px ;
+    padding-bottom: 40px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 32px;
 }
 
 .field {
-    width: 1241px;
     height: 104px;
     padding: 16px 35px 16px 25px;
     border: 1px;
     background: #FFFFFF;
     display: flex;
     align-items: center;
-    border-radius: 8px ;
+    border-radius: 8px;
     margin-bottom: 8px;
     justify-content: space-between;
     font-family: sans-serif;
@@ -23,29 +21,6 @@
     font-weight: 500;
     line-height: 72px;
 
-}
-
-.collapsible {
-    background-color: #f1f1f1;
-    cursor: pointer;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-}
-
-.collapsible:after {
-    content: '\002B';
-    font-size: 13px;
-    color: white;
-    float: right;
-    margin-left: 5px;
-}
-
-.collapsible.active:after {
-    content: "\2212";
 }
 
 .content {
