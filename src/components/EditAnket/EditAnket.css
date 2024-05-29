@@ -1,21 +1,19 @@
-.edit-main{
-    width: 957px;
-    height: 1870px;
-    margin: 0 auto;
-    border: 3px solid #00509D;
+.edit-main {
     border-radius: 30px;
 }
-.edit-main-top{
+
+.edit-main-top {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-
 }
-.arrowLeft{
+
+.arrowLeft {
     margin-left: 30px;
     cursor: pointer;
 }
-.busket{
+
+.busket {
     margin-right: 30px;
     cursor: pointer;
 }
