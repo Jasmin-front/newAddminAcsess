@@ -1,0 +1,22 @@
+.header-profile-main{
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.header-profile{
+    height: 40px;
+    padding: 10px;
+    color: #000000;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    font-family: sans-serif;
+}
+.header-profile:hover{
+    color: #0E60AE;
+
+}
+.active-profile{
+    color: #0E60AE;
+}

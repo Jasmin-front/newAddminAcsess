@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import moon from '../../assets/header/moon.png';
+import together from '../../assets/header/Together.png'
 import './header.css';
+
 
 const Header = ({ onLogout }) => {
     const location = useLocation();
@@ -16,12 +18,9 @@ const Header = ({ onLogout }) => {
         <header>
             <ul className='header-main'>
                 <div className='header-left'>
-                    <div className='header-round'></div>
-                    <span>
                         <Link className={`link-no-underline ${location.pathname === '/home' ? 'active-link' : ''}`} to={'/home'}>
-                            Together Recruitment
+                            <img className='together' src={together} alt=""/>
                         </Link>
-                    </span>
                 </div>
                 <ul className='header-middle'>
                     <li>

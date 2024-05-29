@@ -1,240 +1,23 @@
-.addAnketa{
+.addAnketa {
     display: flex;
     flex-direction: column;
     width: 1241px;
     margin: 0 auto;
     padding-bottom: 153px;
 }
-.addAnketa_top-right-title-drop-down{
-    width: 279px;
-    height: 77px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 10px ;
-    padding-right: 20px ;
-    gap: 10px;
-    border-radius: 8px ;
-    border: 1px ;
-    font-family: Inter;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 38.73px;
-    text-align: left;
-    color: #FFA011;
-    background-color: #FFFFFF;
-    margin-bottom: 7px;
-    cursor: pointer;
 
-}
-.status-buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.btn-status{
-    background-color: #FFFFFF;
-    width: 227px;
-    height: 41px;
-    top: 306px;
-    left: 1142px;
-    padding: 10px ;
-    gap: 10px;
-    border-radius: 8px ;
-    border: 1px ;
-    transition: 0.3s;
-    font-size: 20px;
-}
-.btn-status:hover{
-    background-color: orange;
-    cursor: pointer;
-}
-
-.addAnketa_top{
+.addAnketa_top {
     margin-top: 50px;
     display: flex;
     justify-content: center;
 }
-.addAnketa_top-left{
+
+.addAnketa_top-left {
     width: 274px;
     height: 272px;
-    border-radius: 34px ;
+    border-radius: 34px;
     background: #D9D9D9;
-}
-.addAnketa_top-middle{
-    display: flex;
-    flex-direction: column;
-    margin-left: 33px;
-    gap: 15px;
-}
-.addAnketa_top-right{
-    width: 259px;
-    height: 77px;
-    padding: 10px ;
-    gap: 10px;
-    border-radius: 8px ;
-    border: 1px ;
-    margin-left: 27px;
-    font-size: 32px;
-}
-.input{
-    width: 660px;
-    height:64px;
-    top: 225px;
-    left: 403px;
-    padding: 0 10px 0 10px;
-    gap: 10px;
-    border-radius: 8px ;
-    border: 1px ;
-    font-family: Inter;
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 72px;
-    text-align: left;
-    color: #000000;
-    background: #FAFAFA;
-
-}
-.input::placeholder{
-    font-family: Inter;
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 72px;
-}
-.addAnketa-bottom{
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    margin-top: 100px;
-}
-.addAnketa-bottom-input{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 1241px;
-    height:104px;
-    padding: 16px 50px 16px 15px;
-    border-radius: 8px ;
-    border: 1px;
-    font-family: Inter;
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 72px;
-    text-align: left;
-    color: #000000;
-    background-color: #FFFFFF;
-    cursor: pointer;
-}
-.addAnketa-bottom-input::placeholder{
-
-}
-.english-level-buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-    margin: 0 auto;
-}
-.btn-level{
-    width: 387px;
-    height: 45px;
-    padding: 12px 16px 12px 16px;
-    gap: 8px;
-    border-radius: 8px ;
-    border: 1px ;
-    text-align: left;
-    transition: 0.3s;
-}.btn-level:hover{
-    background-color: orange;
-    cursor: pointer;
-}
-
-
-
-.family-status-buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-    margin: 0 auto;
-}
-.parents-info{
-    margin: 0 auto;
-}
-.parent{
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    text-align: left;
-
-}
-.input-parent{
-    width: 642px;
-    height: 48px;
-    padding: 12px 16px 12px 16px;
-    gap: 8px;
-    border-radius: 8px;
-    border: 1px;
-
-}
-.child-input{
-    height: 40px;
-    width: 200px;
-    padding: 0 5px 0 5px;
-}
-.child-input::placeholder{
-    padding: 0 7px 0 5px;
-}
-
-.btns-end{
-    display: flex;
-    margin: 300px auto 0 ;
-    gap: 32px;
-}
-.submit-button{
-    top: 3013px;
-    left: 455px;
-    padding: 10px ;
-    gap: 10px;
-    border-radius: 16px ;
-    border: 1px;
-    font-family: Inter;
-    font-size: 64px;
-    font-weight: 400;
-    line-height: 77.45px;
-    color: black;
-    transition: 0.5s;
-}
-.submit-button:hover{
-    background-color: orange;
-}
-.best-friend{
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-}
-.arrowDown{
-    transition: 0.2s;
-}
-.arrowDown{
-    transform: rotate(180deg);
-
-}
-.arrow_Down-left{
-    width: 24px;
-    height: 24px;
-}
-.error-span{
-    color: red;
-}
-.addAnketa_top-left {
     position: relative;
-    width: 100%;
-    height: 300px;
-    border: 1px dashed #ccc;
-    overflow: hidden;
 }
 
 .input-file {
@@ -259,9 +42,335 @@
     position: absolute;
     top: 0;
     left: 0;
+    border-radius: 20px;
 }
+
+.addAnketa_top-middle {
+    display: flex;
+    flex-direction: column;
+    margin-left: 33px;
+    gap: 15px;
+}
+
+.addAnketa_top-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 300px;
+    margin-left: 27px;
+}
+
+.addAnketa_top-right-title-drop-down {
+    width: 279px;
+    height: 77px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 20px;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38.73px;
+    text-align: left;
+    color: #FFA011;
+    background-color: #FFFFFF;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+
+.status-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 279px;
+}
+
+.btn-status {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 41px;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+    font-size: 20px;
+    text-align: left;
+}
+
+.btn-status:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.input {
+    width: 660px;
+    height: 64px;
+    padding: 0 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 72px;
+    text-align: left;
+    color: #000000;
+    background: #FAFAFA;
+}
+
+.input::placeholder {
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 72px;
+}
+
+.addAnketa-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 100px;
+}
+
+.addAnketa-bottom-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1241px;
+    height: 104px;
+    padding: 16px 50px 16px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 72px;
+    text-align: left;
+    color: #000000;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.addAnketa-drop-down {
+    display: flex;
+    width: 100%;
+}
+
+.addAnketa-drop-down-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+    height: 77px;
+    padding-left: 10px;
+    padding-right: 20px;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38.73px;
+    text-align: left;
+    color: black;
+    background-color: #FFFFFF;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+
+.english-level-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    width: 279px;
+    margin: 0 auto;
+}
+
+.btn-level {
+    width: 100%;
+    height: 45px;
+    padding: 12px 16px;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+    transition: 0.3s;
+    background-color: #FFFFFF;
+}
+
+.btn-level:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.family-status-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    width: 279px;
+    margin: 0 auto;
+}
+
+.parents-info {
+    margin: 0 auto;
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+}
+
+.input-parent {
+    width: 642px;
+    height: 48px;
+    padding: 12px 16px;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.child-input {
+    height: 40px;
+    width: 200px;
+    padding: 0 5px;
+}
+
+.child-input::placeholder {
+    padding: 0 7px;
+}
+
+.btns-end {
+    display: flex;
+    margin: 100px 0 0 900px;
+    gap: 32px;
+}
+
+.submit-button {
+    background-color: #FFFFFF;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    font-family: Inter;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 77.45px;
+    color: black;
+    transition: 0.5s;
+    height: 60px;
+}
+
+.submit-button:hover {
+    background-color: orange;
+}
+
+.best-friend {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.arrowDown {
+    transition: 0.2s;
+}
+
+.arrowDown {
+    transform: rotate(180deg);
+}
+
+.arrow_Down-left {
+    width: 24px;
+    height: 24px;
+}
+
+.error-span {
+    color: red;
+}
+
 .error-message {
     color: red;
     font-size: 17px;
     margin-top: 5px;
+}
+.addAnketa-drop-down-one{
+    display: flex;
+    flex-direction: column;
+}
+.addAnketa-drop-down-input-one{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.addAnketa-bottom-input-one{
+    width: 600px;
+    height: 77px;
+    padding: 16px 50px 16px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 72px;
+    text-align: left;
+}
+.btn-level-one{
+    width: 250px;
+    height: 45px;
+    padding: 12px 16px;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+    transition: 0.3s;
+    background-color: white;
+}
+.btn-level-one:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+.country-buttons{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+}
+.addAnketa-drop-down-input-end{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 77px;
+    padding-left: 10px;
+    padding-right: 50px;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38.73px;
+    text-align: left;
+    color: black;
+    background-color: #FFFFFF;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+.addAnketa-drop-down-country{
+    display: flex;
+    flex-direction: column;
 }

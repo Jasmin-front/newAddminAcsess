@@ -1,7 +1,7 @@
 header{
     width: 1440px;
     height: 130px;
-    padding: 46px 101px 32px 107px;
+    padding: 46px 101px 32px 50px;
     margin: 0 auto;
 }
 .header-main{
@@ -11,7 +11,10 @@ header{
 .header-left{
     display: flex;
     align-items: center;
-    gap: 11px;
+    justify-content: start;
+
+    width: 320px;
+    height: 52px;
 }
 .header-middle{
     display: flex;
@@ -35,13 +38,16 @@ header{
 }
 .link-no-underline{
     text-decoration: none;
-    font-family: Inter;
     font-size: 21px;
     font-weight: 600;
     line-height: 25.41px;
     text-align: left;
     color: #0E60AE;
-
+    font-family: sans-serif;
+    transition: 0.2s;
+}
+.link-no-underline:hover{
+    color: #FFA011;
 }
 .header-right{
     display: flex;
@@ -57,8 +63,17 @@ header{
     color: #00509D;
     border: none;
     background: #F1F6FC;
+    font-family: sans-serif;
+    transition: 0.2s;
 
+}
+.header-btn:hover{
+    color: #FFA011;
 }
 .active-link {
     color: #FFA011;
+}
+.together{
+    width: 100%;
+    margin-right: 100px;
 }

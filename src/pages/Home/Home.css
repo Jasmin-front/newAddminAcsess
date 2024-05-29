@@ -133,7 +133,8 @@
 }
 .trash:hover{
     border-radius: 50%;
-    background-color: orange;
+    background: #0E60AE;
+
 }
 .addAnketa-drop-down{
     display: flex;
@@ -147,4 +148,11 @@
 }
 .english-level-buttons{
     display: flex;
+}
+.card_main {
+    text-decoration: none;
+}
+
+.card_main:hover, .card_main:focus {
+    text-decoration: none;
 }
