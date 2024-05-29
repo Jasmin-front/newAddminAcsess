@@ -61,9 +61,9 @@ const Home = () => {
 								</span>
 								<span className='birthDate'>{item.birthDate}</span>
 							</div>
-							<p className='card_main-middle'>{item.country}</p>
 							<div className='status-block'>
-								<span className={getStatusClass(item.status)}>{item.status}</span>
+								<span className='card_main-middle'>{item.country}</span>
+								<span className={`${getStatusClass(item.status)} card_status_user`}>{item.status}</span>
 								<img src={trash} className='trash' onClick={e => openModalDelete(e)} alt='trash' />
 							</div>
 						</Link>

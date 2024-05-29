@@ -1,47 +1,53 @@
-.home{
+.home {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 100px;
 }
-.home-container{
+
+.home-container {
     margin-top: 60px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: 100%;
 }
-.card_main{
+
+.card_main {
     display: flex;
-    width: 1240px;
     height: 132px;
     padding: 38px 42px 38px 42px;
     gap: 10px;
-    border-radius: 8px ;
+    border-radius: 8px;
     background: #FFFFFF;
     align-items: center;
+    justify-content: space-between;
+    gap: 50px;
     cursor: pointer;
 }
-.card_main-top{
+
+.card_main-top {
     display: flex;
     flex-direction: column;
     gap: 7px;
     width: 350px;
 }
-.card_main-middle{
-    width: 200px;
+
+.card_main-middle {
     text-align: center;
-    margin-left: 400px;
     font-size: 21px;
     font-weight: 400;
     line-height: 25.41px;
     text-align: center;
     color: #000000;
-
 }
-.card_main-bottom{
+
+.card_main-bottom {
     width: 200px;
     text-align: center;
 }
-.currentLastName{
+
+.currentLastName {
     font-family: Inter;
     font-size: 21px;
     font-weight: 600;
@@ -49,7 +55,8 @@
     text-align: left;
     color: #000000;
 }
-.birthDate{
+
+.birthDate {
     font-family: Inter;
     font-size: 21px;
     font-weight: 400;
@@ -57,7 +64,8 @@
     text-align: left;
     color: #000000;
 }
-.waiting{
+
+.waiting {
     font-family: Inter;
     font-size: 21px;
     font-weight: 600;
@@ -66,7 +74,8 @@
     color: #0E60AE;
 
 }
-.departed{
+
+.departed {
     font-family: Inter;
     font-size: 21px;
     font-weight: 600;
@@ -75,7 +84,8 @@
     color: #837D7D;
 
 }
-.new{
+
+.new {
     font-family: Inter;
     font-size: 21px;
     font-weight: 600;
@@ -83,16 +93,17 @@
     text-align: left;
     color: #58D61D;
 }
-.visa-queue{
+
+.visa-queue {
     font-family: Inter;
     font-size: 21px;
     font-weight: 600;
     line-height: 25.41px;
     text-align: left;
     color: #5292F480;
-
 }
-.invited{
+
+.invited {
     font-family: Inter;
     font-size: 21px;
     font-weight: 600;
@@ -100,7 +111,8 @@
     text-align: left;
     color: #0E60AE;
 }
-.refusal{
+
+.refusal {
     font-family: Inter;
     font-size: 21px;
     font-weight: 600;
@@ -108,7 +120,8 @@
     text-align: left;
     color: red;
 }
-.return{
+
+.return {
     font-family: Inter;
     font-size: 21px;
     font-weight: 600;
@@ -118,13 +131,13 @@
 }
 
 
-.status-block{
+.status-block {
     display: flex;
     align-items: center;
-   width: 220px;
-    justify-content: space-between;
+    gap: 100px;
 }
-.trash{
+
+.trash {
     width: 27px;
     height: 27px;
     display: flex;
@@ -132,23 +145,32 @@
     align-items: center;
 }
 
-.addAnketa-drop-down{
+.addAnketa-drop-down {
     display: flex;
     justify-content: space-between;
 }
-.addAnketa-drop-down-input{
+
+.addAnketa-drop-down-input {
     width: 600px;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.english-level-buttons{
+
+.english-level-buttons {
     display: flex;
 }
+
 .card_main {
     text-decoration: none;
 }
 
-.card_main:hover, .card_main:focus {
+.card_main:hover,
+.card_main:focus {
     text-decoration: none;
+}
+
+.card_status_user {
+    min-width: 200px;
+    text-align: center
 }

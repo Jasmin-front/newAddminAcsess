@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import moon from '../../assets/header/moon.png';
 import together from '../../assets/header/Together.png';
 import './header.css';
+import ThemeBtn from '../../features/themeChanger/ThemeBtn';
 
 const Header = ({ onLogout }) => {
 	const location = useLocation();
@@ -14,7 +14,7 @@ const Header = ({ onLogout }) => {
 
 	return (
 		<header>
-			<ul className='header-main'>
+			<ul className='container header-main'>
 				<div className='header-left'>
 					<Link className={`link-no-underline ${location.pathname === '/' ? 'active-link' : ''}`} to={'/'}>
 						<img className='together' src={together} alt='' />
@@ -47,9 +47,7 @@ const Header = ({ onLogout }) => {
 					</li>
 				</ul>
 				<div className='header-right'>
-					<div className='moon-block'>
-						<img className='moon' src={moon} alt='moon' />
-					</div>
+					<ThemeBtn />
 					<button className='header-btn' onClick={handleLogout}>
 						Выйти
 					</button>
