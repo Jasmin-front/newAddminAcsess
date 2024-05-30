@@ -16,7 +16,7 @@ const Header = ({ onLogout }) => {
 
 	return (
 		<header>
-			<ul className='header-main'>
+			<ul className='container header-main'>
 				<div className='header-left'>
 					<Link className={`link-no-underline ${location.pathname === '/' ? 'active-link' : ''}`} to={'/'}>
 						<img className='together' src={together} alt='' />

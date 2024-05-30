@@ -6,6 +6,8 @@
   box-sizing: border-box;
 }
 
+.app_light {}
+
 body {
   background: #F1F6FC;
   font-family: "Inter", sans-serif;

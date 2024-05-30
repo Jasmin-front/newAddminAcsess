@@ -1,42 +1,37 @@
-header{
-    width: 1440px;
-    height: 130px;
-    padding: 46px 101px 32px 50px;
-    margin: 0 auto;
-}
-.header-main{
+header {}
+
+.container.header-main {
     display: flex;
     justify-content: space-between;
+    padding: 40px;
 }
-.header-left{
+
+.header-left {
     display: flex;
     align-items: center;
     justify-content: start;
-
-    width: 320px;
-    height: 52px;
+    height: 50px;
 }
-.header-middle{
+
+.header-left a {
+    width: 150px;
+}
+
+.header-middle {
     display: flex;
     list-style: none;
     gap: 46px;
     align-items: center;
 }
-.header-round{
+
+.header-round {
     width: 52px;
     height: 52px;
     border-radius: 50%;
     background: #D9D9D9;
 }
 
-.moon{
-    width: 100%;
-}
-.moon-block{
-    Width :24px;
-    Height: 24px;
-}
-.link-no-underline{
+.link-no-underline {
     text-decoration: none;
     font-size: 21px;
     font-weight: 600;
@@ -46,16 +41,18 @@ header{
     font-family: sans-serif;
     transition: 0.2s;
 }
-.link-no-underline:hover{
+
+.link-no-underline:hover {
     color: #FFA011;
 }
-.header-right{
+
+.header-right {
     display: flex;
     gap: 33px;
     align-items: center;
 }
-.header-btn{
-    font-family: Inter;
+
+.header-btn {
     font-size: 24px;
     font-weight: 600;
     line-height: 29.05px;
@@ -65,15 +62,18 @@ header{
     background: #F1F6FC;
     font-family: sans-serif;
     transition: 0.2s;
-
 }
-.header-btn:hover{
+
+.header-btn:hover {
     color: #FFA011;
 }
+
 .active-link {
     color: #FFA011;
 }
-.together{
-    width: 100%;
+
+.together {
+    width: 200px;
     margin-right: 100px;
+    margin-left: -26px;
 }
