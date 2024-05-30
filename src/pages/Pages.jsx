@@ -11,7 +11,7 @@ const Pages = () => {
 	return (
 		<div className='container'>
 			<Routes>
-				<Route path='/home' element={<Home />} />
+				<Route path='/' element={<Home />} />
 				<Route path='/status' element={<Status />} />
 				<Route path='/country' element={<Country />} />
 				<Route path='/addAnketa' element={<AddAnketa />} />

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDataUserId } from '../../features/getDataUser/getInfoUserReducer.js';
+import { getDataUserId } from '../../entity/getDataUser/getInfoUserReducer.js';
 import HeaderProfile from '../../components/HeaderProfile/HeaderProfile.jsx';
-import './User.css';
 import ProfileLayout from '../../components/PrfileLayout/ProfileLayout.jsx';
 import edit from '../../assets/user/edit.png';
+import './User.css';
 
 const User = () => {
 	const dispatch = useDispatch();

@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { sendDataUsers } from '../../features/getDataUserReducer/getDataUserReducer.js';
-import arrowDown from '../../assets/addAnketa/arrow-down.png';
+import { sendDataUsers } from '../../entity/getDataUserReducer/getDataUserReducer.js';
+import ArrowDown from '../../assets/addAnketa/arrow-down.svg?react';
 
 const initialData = {
 	birthLastName: '',
@@ -61,6 +61,8 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 		name: 'children',
 	});
 
+	const [showParentsInputs, setShowParentsInputs] = useState(false);
+	const [showFriendInputs, setShowFriendInputs] = useState(false);
 	const [showChildrenInputs, setShowChildrenInputs] = useState(false);
 	const [showEnglishLevelInputs, setShowEnglishLevelInputs] = useState(false);
 	const [showFamilyStatusInputs, setShowFamilyStatusInputs] = useState(false);
@@ -117,7 +119,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 
 		reset();
 		dispatch(sendDataUsers(data));
-		navigate('/home');
+		navigate('/');
 		console.log(data);
 	};
 
@@ -204,7 +206,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 						onClick={() => toggleInputs(setShowStatusOptions)}
 					>
 						{watch('status') || 'Status'}
-						<img src={arrowDown} className={showStatusOptions ? 'arrowDown' : ''} alt='arrowDown' />
+						<ArrowDown className={showStatusOptions ? 'arrowDown' : ''} />
 					</button>
 					{showStatusOptions && (
 						<div className='status-buttons'>
@@ -319,7 +321,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 							<span>
 								{watch('englishLevel') ? `Уровень английского: ${watch('englishLevel')}` : 'Уровень английского'}
 							</span>
-							<img src={arrowDown} className={showEnglishLevelInputs ? 'arrowDown' : ''} alt='arrowDown' />
+							<ArrowDown className={showEnglishLevelInputs ? 'arrowDown' : ''} />
 						</div>
 						<div>
 							{showEnglishLevelInputs && (
@@ -342,7 +344,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 					<div className='addAnketa-drop-down-one'>
 						<div className='addAnketa-drop-down-input' onClick={() => toggleInputs(setShowFamilyStatusInputs)}>
 							<span>{watch('familyStatus') ? `Семейный статус: ${watch('familyStatus')}` : 'Семейный статус'}</span>
-							<img src={arrowDown} className={showFamilyStatusInputs ? 'arrowDown' : ''} alt='arrowDown' />
+							<ArrowDown className={showFamilyStatusInputs ? 'arrowDown' : ''} />
 						</div>
 						<div>
 							{showFamilyStatusInputs && (
@@ -365,7 +367,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 				</div>
 				<button className='addAnketa-bottom-input' type='button' onClick={() => toggleInputs(setShowChildrenInputs)}>
 					{showChildrenInputs ? 'Скрыть ' : 'Дети'}
-					<img src={arrowDown} className={showChildrenInputs ? 'arrowDown' : ''} alt='arrowDown' />
+					<ArrowDown className={showChildrenInputs ? 'arrowDown' : ''} />
 				</button>
 				{showChildrenInputs && (
 					<>
@@ -393,7 +395,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 				<div className='addAnketa-drop-down-country'>
 					<div className='addAnketa-drop-down-input-end' onClick={() => toggleInputs(setShowCountryOptions)}>
 						<span>{watch('country') ? `Страна: ${watch('country')}` : 'Страна'}</span>
-						<img src={arrowDown} className={showCountryOptions ? 'arrowDown' : ''} alt='arrowDown' />
+						<ArrowDown className={showCountryOptions ? 'arrowDown' : ''} />
 					</div>
 					<div>
 						{showCountryOptions && (
@@ -430,12 +432,56 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 						{errors.country && <span className='error-message'>{errors.country.message}</span>}
 					</div>
 				</div>
+				<button className='addAnketa-bottom-input' type='button' onClick={() => toggleInputs(setShowParentsInputs)}>
+					{showParentsInputs ? 'Скрыть ' : 'Родители'}
+					<ArrowDown className={showParentsInputs ? 'arrowDown' : ''} />
+				</button>
+				{showParentsInputs && (
+					<div className='parents-info'>
+						<div className='parent'>
+							<span>Мать</span>
+							<input {...register('mother.name')} className='input-parent' type='text' placeholder='ФИО' />
+							<input {...register('mother.phone')} className='input-parent' type='text' placeholder='Номер телефона' />
+							<input
+								{...register('mother.birthDate')}
+								className='input-parent'
+								type='text'
+								placeholder='Дата рождения'
+							/>
+						</div>
+						<div className='parent'>
+							<span>Отец</span>
+							<input {...register('father.name')} className='input-parent' type='text' placeholder='ФИО' />
+							<input {...register('father.phone')} className='input-parent' type='text' placeholder='Номер телефона' />
+							<input
+								{...register('father.birthDate')}
+								className='input-parent'
+								type='text'
+								placeholder='Дата рождения'
+							/>
+						</div>
+					</div>
+				)}
+
+				<button className='addAnketa-bottom-input' type='button' onClick={() => toggleInputs(setShowFriendInputs)}>
+					{showFriendInputs ? 'Скрыть' : 'Близкий друг'}
+					<ArrowDown className={showFriendInputs ? 'arrowDown' : 'arrow_Down-left'} />
+				</button>
+				{showFriendInputs && (
+					<div className='best-friend'>
+						<span>Близкий друг</span>
+						<input {...register('friend.name')} className='input-parent' type='text' placeholder='ФИО' />
+						<input {...register('friend.phone')} className='input-parent' type='text' placeholder='Номер телефона' />
+						<input {...register('friend.birthDate')} className='input-parent' type='text' placeholder='Дата рождения' />
+					</div>
+				)}
 			</div>
+
 			<div className='btns-end'>
-				<button className='submit-button' type='submit'>
+				<button className='submit-button btn' type='submit'>
 					Сохранить
 				</button>
-				<button className='submit-button' type='button' onClick={handleCancel}>
+				<button className='submit-button btn' type='button' onClick={handleCancel}>
 					Отменить
 				</button>
 			</div>
