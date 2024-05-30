@@ -37,7 +37,7 @@ header {}
     font-weight: 600;
     line-height: 25.41px;
     text-align: left;
-    color: #0E60AE;
+    color: var(--primary-blue);
     font-family: sans-serif;
     transition: 0.2s;
 }
@@ -57,11 +57,12 @@ header {}
     font-weight: 600;
     line-height: 29.05px;
     text-align: left;
-    color: #00509D;
+    color: var(--primary-blue-dark);
     border: none;
-    background: #F1F6FC;
     font-family: sans-serif;
     transition: 0.2s;
+    cursor: pointer;
+    background: transparent;
 }
 
 .header-btn:hover {

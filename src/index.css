@@ -6,13 +6,28 @@
   box-sizing: border-box;
 }
 
-.app_light {}
+.app_light {
+  --color: #000000;
+  --main-bg: #F1F6FC;
+  --primary-blue: #0E60AE;
+  --primary-blue-dark: #00509D;
+  background: var(--main-bg);
+}
+
+.app_dark {
+  --color: #FFF;
+  --main-bg: #1E1F20;
+  --primary-blue: #FFF;
+  --primary-blue-dark: #FFF;
+  background: var(--main-bg);
+
+}
 
 body {
-  background: #F1F6FC;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  color: var(--color);
 }
 
 .container {
