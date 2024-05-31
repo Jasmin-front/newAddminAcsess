@@ -4,11 +4,12 @@ import ArrowDown from '../../../assets/addAnketa/arrow-down.svg?react';
 import './UserProfile.css';
 
 const UserProfile = () => {
-	const { user } = useSelector(state => state.getUsers);
+	const { user, loading, error } = useSelector(state => state.getUsers);
 	const [toggleInput, setToggleInput] = useState(null);
 	const handleToggleInput = param => {
 		setToggleInput(prev => (prev !== param ? param : null));
 	};
+
 	const renderField = (label, value) => {
 		if (value) {
 			return (
@@ -30,6 +31,9 @@ const UserProfile = () => {
 					{renderField('Номер телефона', person.phone)}
 				</>
 			);
+		else {
+			return renderField(label, 'Нет данных');
+		}
 	};
 
 	const showChildren = toggleInput === 'children';
@@ -37,59 +41,58 @@ const UserProfile = () => {
 	const showFather = toggleInput === 'father';
 	const showFriend = toggleInput === 'friend';
 
+	if (loading) return <p>Loading...</p>;
+
+	if (error) {
+		console.error(error);
+		return <p style={{ color: 'red' }}>{error}</p>;
+	}
+
 	return (
 		<div className='user-profile'>
-			{user ? (
-				<>
-					{renderField('Место рождения', user.birthPlace)}
-					{renderField('Место жительства', user.residence)}
-					{renderField('Загранпаспорт', user.passportNumber)}
-					{renderField('Дата выдачи загранпаспорта', user.passportIssueDate)}
-					{renderField('Дата оканчания загранпаспорта', user.passportExpirationDate)}
-					{renderField('Орган выдачи загранпаспорта', user.passportIssuingAuthority)}
-					{renderField('Email', user.email)}
-					{renderField('Уровень английского', user.englishLevel)}
-					{renderField('Семейное положение', user.familyStatus)}
-					{renderField('Страна', user.country)}
+			{renderField('Место рождения', user.birthPlace)}
+			{renderField('Место жительства', user.residence)}
+			{renderField('Загранпаспорт', user.passportNumber)}
+			{renderField('Дата выдачи загранпаспорта', user.passportIssueDate)}
+			{renderField('Дата оканчания загранпаспорта', user.passportExpirationDate)}
+			{renderField('Орган выдачи загранпаспорта', user.passportIssuingAuthority)}
+			{renderField('Email', user.email)}
+			{renderField('Уровень английского', user.englishLevel)}
+			{renderField('Семейное положение', user.familyStatus)}
+			{renderField('Страна', user.country)}
 
-					<button className='addAnketa-bottom-input' type='button' onClick={() => handleToggleInput('children')}>
-						{showChildren ? 'Скрыть ' : 'Дети'}
-						<ArrowDown className={showChildren ? 'arrowDown' : ''} />
-					</button>
-					{showChildren && user.children && user.children.length > 0
-						? user.children.map((child, index) => (
-								<div key={index} className='child-info'>
-									{renderField('Ребенок', index + 1)}
-									{renderField('Имя', child.name)}
-									{renderField('Дата рождения', child.birthDate)}
-								</div>
-						  ))
-						: renderField('Нет данных о детях', '')}
+			<button className='addAnketa-bottom-input' type='button' onClick={() => handleToggleInput('children')}>
+				{showChildren ? 'Скрыть ' : 'Дети'}
+				<ArrowDown className={showChildren ? 'arrowDown' : ''} />
+			</button>
+			{showChildren &&
+				(user.children?.length > 0
+					? user.children.map((child, index) => (
+							<div key={index} className='child-info'>
+								{renderField('Ребенок', index + 1)}
+								{renderField('Имя', child.name)}
+								{renderField('Дата рождения', child.birthDate)}
+							</div>
+					  ))
+					: renderField('Дети', 'Нет данных о детях'))}
 
-					<button className='addAnketa-bottom-input' type='button' onClick={() => handleToggleInput('mother')}>
-						{showMother ? 'Скрыть ' : 'Мать'}
-						<ArrowDown className={showMother ? 'arrowDown' : ''} />
-					</button>
+			<button className='addAnketa-bottom-input' type='button' onClick={() => handleToggleInput('mother')}>
+				{showMother ? 'Скрыть ' : 'Мать'}
+				<ArrowDown className={showMother ? 'arrowDown' : ''} />
+			</button>
+			{showMother && renderPerson('Мать', user.mother)}
 
-					{showMother && renderPerson('Мать', user.mother)}
+			<button className='addAnketa-bottom-input' type='button' onClick={() => handleToggleInput('father')}>
+				{showFather ? 'Скрыть ' : 'Отец'}
+				<ArrowDown className={showFather ? 'arrowDown' : ''} />
+			</button>
+			{showFather && renderPerson('Отец', user.father)}
 
-					<button className='addAnketa-bottom-input' type='button' onClick={() => handleToggleInput('father')}>
-						{showFather ? 'Скрыть ' : 'Отец'}
-						<ArrowDown className={showFather ? 'arrowDown' : ''} />
-					</button>
-					{showFather && renderPerson('Отец', user.father)}
-
-					<button className='addAnketa-bottom-input' type='button' onClick={() => handleToggleInput('friend')}>
-						{showFriend ? 'Скрыть ' : 'Близкий друг'}
-						<ArrowDown className={showFriend ? 'arrowDown' : ''} />
-					</button>
-					{showFriend && renderPerson('Близкий друг', user.friend)}
-				</>
-			) : (
-				<div>
-					<span>LOADING...</span>
-				</div>
-			)}
+			<button className='addAnketa-bottom-input' type='button' onClick={() => handleToggleInput('friend')}>
+				{showFriend ? 'Скрыть ' : 'Близкий друг'}
+				<ArrowDown className={showFriend ? 'arrowDown' : ''} />
+			</button>
+			{showFriend && renderPerson('Близкий друг', user.friend)}
 		</div>
 	);
 };

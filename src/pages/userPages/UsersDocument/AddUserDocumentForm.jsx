@@ -2,12 +2,15 @@ import './UserDocument.css';
 import { useRef, useState } from 'react';
 import DownloadIcon from '../../../assets/download.svg?react';
 import TrashIcon from '../../../assets/trash.svg?react';
+import { useRequest } from '../../../api/requester';
 const AddUserDocumentForm = ({ onClose, id }) => {
 	const inpFileRef = useRef();
+	const [name, setName] = useState('');
 	const [files, setFiles] = useState([]);
 	const handleAddFile = () => {
 		inpFileRef.current.click();
 	};
+	const { request, data: documents } = useRequest('post');
 
 	const handleClickToDownload = file => {
 		const downloadLink = document.createElement('a');
@@ -18,20 +21,26 @@ const AddUserDocumentForm = ({ onClose, id }) => {
 		document.body.removeChild(downloadLink);
 	};
 
-	const handleSubmit = () => {
+	const handleSubmit = async () => {
 		const formData = new FormData();
 		if (files.length === 0) alert('Пожалуйста добавьте файлы');
-		formData.append('user_id', id);
 		for (let i = 0; i < files.length; i++) {
 			if (i === 0) formData.append(`file`, files[i]);
 			else formData.append(`file${i}`, files[i]);
 		}
+		await request(`/workers/client/${id}/documents/`, formData);
 	};
 
 	return (
 		<div>
 			<div className='user_documents'>
-				<input type='text' className='user_document_input' placeholder='Название' />
+				<input
+					value={name}
+					onChange={e => setName(e.target.value)}
+					type='text'
+					className='user_document_input'
+					placeholder='Название'
+				/>
 				{files.map((item, index) => (
 					<div key={index} className='user_document_holder'>
 						<div className='user_document_holder_input'>

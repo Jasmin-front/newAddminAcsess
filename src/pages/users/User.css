@@ -1,10 +1,12 @@
-.main-user {}
+.main-user {
+    padding-bottom: 100px;
+}
 
 .main-user-profile {
-    width: 1241px;
     height: 328px;
     display: flex;
     margin: 42px auto;
+    gap: 40px;
 }
 
 .main-user-images {
@@ -57,7 +59,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-left: 33px;
 }
 
 .profile-user-busket {
@@ -72,7 +73,6 @@
 }
 
 .profile-user-status {
-    width: 300px;
     height: 69px;
     display: flex;
     align-items: center;
@@ -82,5 +82,4 @@
     line-height: 43px;
     color: #FFA011;
     justify-content: center;
-    margin-left: 26px;
 }

@@ -1,6 +1,5 @@
 .user-document-main-container {
-    width: 1241px;
-    height: 698px;
+    min-height: 300px;
     border: 1px solid #C1C1C1;
     display: flex;
     flex-direction: column;
@@ -109,5 +108,32 @@
     display: flex;
     justify-content: flex-end;
     gap: 12px;
+}
+
+.user-document-content {
+    padding: 20px;
+}
+
+.user-document-holder {
+    padding: 30px;
+    display: flex;
     flex-direction: column;
+    gap: 20px;
+    border: 1px solid #C1C1C1;
+}
+
+.user-document-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-document-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.user-document-text {
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
 }

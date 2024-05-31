@@ -19,7 +19,7 @@ const User = () => {
 			<HeaderProfile />
 			<div className='main-user-profile'>
 				<div className='main-user-images'>
-					<img src='' alt='' />
+					<img src={user.image} alt='' />
 				</div>
 				<div className='prfile-user-midlle'>
 					<div className='user-data-title'>

@@ -15,7 +15,7 @@ export const getDataUsers = createAsyncThunk('getDataUsers', async (_, { dispatc
 		const { data } = await requester.get('/workers/main/');
 		dispatch(addUsers(data));
 	} catch (error) {
-		dispatch(setLoading(false));
+		dispatch(setError(data));
 		return rejectWithValue(error.message);
 	} finally {
 		dispatch(setLoading(false));
@@ -25,13 +25,12 @@ export const getDataUsers = createAsyncThunk('getDataUsers', async (_, { dispatc
 export const getDataUserId = createAsyncThunk('getDataUserId', async (userId, { dispatch, rejectWithValue }) => {
 	try {
 		dispatch(setLoading(true));
-		const response = await fetch(`https://656db53ebcc5618d3c23cb54.mockapi.io/todo/something/product/${userId}`);
-		const responseData = await response.json();
-		dispatch(setLoading(false));
-		dispatch(addUser(responseData));
+		const { data } = await requester.get(`/workers/client/${userId}/`);
+		dispatch(addUser(data));
 	} catch (error) {
-		dispatch(setLoading(false));
 		return rejectWithValue(error.message);
+	} finally {
+		dispatch(setLoading(false));
 	}
 });
 

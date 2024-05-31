@@ -55,10 +55,9 @@ const Home = () => {
 	};
 	if (loading) return <p>Loading...</p>;
 	if (error) {
-		console.log(error);
+		console.error(error);
 		return <p style={{ color: 'red' }}>{error}</p>;
 	}
-	console.log(users);
 	return (
 		<div className='home'>
 			<Input />
