@@ -6,12 +6,13 @@
   box-sizing: border-box;
 }
 
+
+
 .app_light {
   --color: #000000;
   --main-bg: #F1F6FC;
   --primary-blue: #0E60AE;
   --primary-blue-dark: #00509D;
-  background: var(--main-bg);
 }
 
 .app_dark {
@@ -19,8 +20,12 @@
   --main-bg: #1E1F20;
   --primary-blue: #FFF;
   --primary-blue-dark: #FFF;
-  background: var(--main-bg);
+}
 
+.app_dark,
+.app_light {
+  background: var(--main-bg);
+  min-height: 100vh;
 }
 
 body {
@@ -77,13 +82,17 @@ body {
 
 .btn_grandient:hover {
   background: #0E60AE;
-
 }
 
-.form-control-btns {
-  margin-top: 126px;
-  margin-left: 425px;
-  display: flex;
-  margin-bottom: 37px;
-  gap: 12px;
+input,
+input:focus {
+  outline: none;
+  border: none;
+}
+
+.btn_icon {
+  all: unset;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
 }

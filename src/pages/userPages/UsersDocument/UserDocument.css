@@ -1,4 +1,4 @@
-.user-document-main-container{
+.user-document-main-container {
     width: 1241px;
     height: 698px;
     border: 1px solid #C1C1C1;
@@ -6,13 +6,14 @@
     display: flex;
     flex-direction: column;
 }
-.user-document-main-container-btn{
+
+.user-document-main-container-btn {
     display: flex;
     height: 84px;
     border-bottom: 1px solid #C1C1C1;
     align-items: center;
-    padding-left: 20px ;
-    padding-right: 20px ;
+    padding-left: 20px;
+    padding-right: 20px;
     justify-content: space-between;
 }
 
@@ -31,18 +32,18 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    transition:0.2s;
+    transition: 0.2s;
 
 }
-#user-document-top-botom:hover{
+
+#user-document-top-botom:hover {
     background-color: #0E60AE;
 }
-.form-control{
-    margin-top: 38px;
-    width: 720px;
+
+.user_document_input {
     height: 69px;
     padding: 15px 10px 15px 10px;
-    border-radius: 8px ;
+    border-radius: 8px;
     border: 1px solid #C1C1C1;
     font-family: Inter;
     font-size: 32px;
@@ -50,6 +51,61 @@
     line-height: 38.73px;
     text-align: left;
 }
-.form-control-btn{
-    margin-top: 43px;
+
+.user_document_holder {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user_document_holder_input {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #C1C1C1;
+    overflow: hidden;
+    height: 60px;
+    max-width: 550px;
+    width: 100%;
+}
+
+.user_document_holder_input div {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18.2px;
+    letter-spacing: 0.03em;
+    padding: 0 12px;
+    flex: 1;
+}
+
+.user_documents {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.user_document_btn {
+    all: unset;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2750AE;
+    cursor: pointer;
+}
+
+.user_document_btn:hover {
+    background: #00509D;
+}
+
+.user_form_control_btn {
+    width: fit-content;
+}
+
+.form-control-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
 }

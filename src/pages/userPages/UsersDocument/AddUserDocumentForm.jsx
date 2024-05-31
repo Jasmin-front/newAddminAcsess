@@ -1,29 +1,79 @@
-import './UserDocument.css'
-import {useRef, useState} from "react";
-const AddUserDocumentForm = ({onClose}) => {
-    const inpFileRef = useRef()
-    const [files,setFiles] = useState([])
-    const handleAddFile  = () => {
-        inpFileRef.current.click()
-    }
-    console.log(files)
-    return (
-        <div>
-            <input type="text" className="form-control" placeholder="Название" />
-            <button onClick={handleAddFile} className="btn_grandient form-control-btn">
-                +add
-            </button>
-            <input type="file" onChange={(e)=> {
-                if(files.length < 3){
-                    setFiles(prev=>[...prev,e.target.files[0]])
-                }
-            }} hidden ref={inpFileRef}/>
-            <div className='form-control-btns'>
-                <button className='btns-document btn' >Submite</button>
-                <button onClick={onClose}  className='btns-document btn'>Cancel</button>
-            </div>
-        </div>
-    );
+import './UserDocument.css';
+import { useRef, useState } from 'react';
+import DownloadIcon from '../../../assets/download.svg?react';
+import TrashIcon from '../../../assets/trash.svg?react';
+const AddUserDocumentForm = ({ onClose, id }) => {
+	const inpFileRef = useRef();
+	const [files, setFiles] = useState([]);
+	const handleAddFile = () => {
+		inpFileRef.current.click();
+	};
+	const handleClickToDownload = file => {
+		const downloadLink = document.createElement('a');
+		downloadLink.href = URL.createObjectURL(file);
+		downloadLink.download = file.name;
+		document.body.appendChild(downloadLink);
+		downloadLink.click();
+		document.body.removeChild(downloadLink);
+	};
+	const handleSubmit = () => {
+		const formData = new FormData();
+		if (files.length === 0) alert('Пожалуйста добавьте файлы');
+		formData.append('user_id', id);
+		console.log(id);
+		for (let i = 0; i < files.length; i++) {
+			if (i === 0) formData.append(`file`, files[i]);
+			else formData.append(`file${i}`, files[i]);
+		}
+	};
+	return (
+		<div>
+			<div className='user_documents'>
+				<input type='text' className='user_document_input' placeholder='Название' />
+				{files.map((item, index) => (
+					<div key={index} className='user_document_holder'>
+						<div className='user_document_holder_input'>
+							<div>{item.name}</div>
+							<button onClick={() => handleClickToDownload(item)} className='user_document_btn'>
+								<DownloadIcon />
+							</button>
+						</div>
+						<button
+							onClick={() => {
+								setFiles(prev => {
+									return prev.filter((_, prevIndex) => prevIndex !== index);
+								});
+							}}
+							className='btn_icon'
+						>
+							<TrashIcon />
+						</button>
+					</div>
+				))}
+				<button onClick={handleAddFile} className='btn_grandient user_form_control_btn'>
+					+add
+				</button>
+				<input
+					type='file'
+					onChange={e => {
+						if (files.length < 3) {
+							setFiles(prev => [...prev, e.target.files[0]]);
+						}
+					}}
+					hidden
+					ref={inpFileRef}
+				/>
+			</div>
+			<div className='form-control-btns'>
+				<button className='btns-document btn' onClick={handleSubmit}>
+					Submite
+				</button>
+				<button onClick={onClose} className='btns-document btn'>
+					Cancel
+				</button>
+			</div>
+		</div>
+	);
 };
 
 export default AddUserDocumentForm;
