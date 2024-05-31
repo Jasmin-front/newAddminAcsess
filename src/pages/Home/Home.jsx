@@ -31,7 +31,7 @@ const Home = () => {
 	useEffect(() => {
 		dispatch(getDataUsers());
 	}, []);
-	const { users } = useSelector(state => state.getUsers);
+	const { users, loading, error } = useSelector(state => state.getUsers);
 
 	const getStatusClass = status => {
 		switch (status) {
@@ -53,40 +53,39 @@ const Home = () => {
 				return '';
 		}
 	};
-
+	if (loading) return <p>Loading...</p>;
+	if (error) {
+		console.log(error);
+		return <p style={{ color: 'red' }}>{error}</p>;
+	}
+	console.log(users);
 	return (
 		<div className='home'>
 			<Input />
 			<div className='home-container'>
-				{users ? (
-					users.map((item, index) => (
-						<Link to={`/users/${item.id}`} key={index} className={`card_main ${getStatusClass(item.status)}`}>
-							<div className='card_main-top'>
-								<span className='currentLastName'>
-									{item.currentLastName} {item.firstName} {item.birthLastName}
-								</span>
-								<span className='birthDate'>{item.birthDate}</span>
-							</div>
-							<div className='status-block'>
-								<p className='card_main-middle'>{item.country}</p>
-								<span className={`${getStatusClass(item.status)} card_status_user`}>{item.status}</span>
-								<img
-									src={trash}
-									className='trash'
-									onClick={e => {
-										setUserId(item.id);
-										openModalDelete(e);
-									}}
-									alt='trash'
-								/>
-							</div>
-						</Link>
-					))
-				) : (
-					<div>
-						<span>LOADING...</span>
-					</div>
-				)}
+				{users.results?.map((item, index) => (
+					<Link to={`/users/${item.id}`} key={index} className={`card_main ${getStatusClass(item.status)}`}>
+						<div className='card_main-top'>
+							<span className='currentLastName'>
+								{item.currentLastName} {item.firstName} {item.birthLastName}
+							</span>
+							<span className='birthDate'>{item.birthDate}</span>
+						</div>
+						<div className='status-block'>
+							<p className='card_main-middle'>{item.country}</p>
+							<span className={`${getStatusClass(item.status)} card_status_user`}>{item.status}</span>
+							<img
+								src={trash}
+								className='trash'
+								onClick={e => {
+									setUserId(item.id);
+									openModalDelete(e);
+								}}
+								alt='trash'
+							/>
+						</div>
+					</Link>
+				))}
 				{open && (
 					<ModalConfirm title='Вы уверены, что хотите удалить?' confirm={deleteUser} closeModal={closeModalDelete} />
 				)}

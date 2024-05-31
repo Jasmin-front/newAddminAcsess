@@ -36,7 +36,7 @@ const initialData = {
 		phone: '',
 		birthDate: '',
 	},
-	friend: {
+	contact: {
 		name: '',
 		phone: '',
 		birthDate: '',
@@ -75,7 +75,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const onSubmit = data => {
+	const validate = data => {
 		let formValid = true;
 
 		if (!data.status) {
@@ -99,28 +99,36 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 			setFamilyStatusError('');
 		}
 
-		if (!data.mother.name && !data.father.name && !data.friend.name) {
+		if (!data.mother.name && !data.father.name && !data.contact.name) {
 			alert('Заполните данные одного из родителей или близкого друга');
 			formValid = false;
 		}
+		return formValid;
+	};
 
-		if (!formValid) {
+	const onSubmit = data => {
+		if (!validate(data)) {
 			return;
 		}
-
 		const formData = new FormData();
 		for (const key in data) {
-			if (key === 'children') {
-				formData.append(key, JSON.stringify(data[key]));
-			} else {
-				formData.append(key, data[key]);
+			if (formData.hasOwnProperty(key)) {
+				if (typeof formData[key] === 'object' && formData[key] !== null && !Array.isArray(formData[key])) {
+					for (const subKey in formData[key]) {
+						formData.append(`${key}[${subKey}]`, formData[key][subKey]);
+					}
+				} else if (Array.isArray(formData[key])) {
+					formData[key].forEach((item, index) => {
+						for (const subKey in item) {
+							formData.append(`${key}[${index}][${subKey}]`, item[subKey]);
+						}
+					});
+				} else {
+					formData.append(key, formData[key]);
+				}
 			}
 		}
-
-		reset();
-		dispatch(sendDataUsers(data));
-		navigate('/');
-		console.log(data);
+		dispatch(sendDataUsers({ data, reset }));
 	};
 
 	const handleCancel = () => {
@@ -470,9 +478,14 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 				{showFriendInputs && (
 					<div className='best-friend'>
 						<span>Близкий друг</span>
-						<input {...register('friend.name')} className='input-parent' type='text' placeholder='ФИО' />
-						<input {...register('friend.phone')} className='input-parent' type='text' placeholder='Номер телефона' />
-						<input {...register('friend.birthDate')} className='input-parent' type='text' placeholder='Дата рождения' />
+						<input {...register('contact.name')} className='input-parent' type='text' placeholder='ФИО' />
+						<input {...register('contact.phone')} className='input-parent' type='text' placeholder='Номер телефона' />
+						<input
+							{...register('contact.birthDate')}
+							className='input-parent'
+							type='text'
+							placeholder='Дата рождения'
+						/>
 					</div>
 				)}
 			</div>

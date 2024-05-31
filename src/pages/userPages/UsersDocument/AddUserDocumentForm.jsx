@@ -8,6 +8,7 @@ const AddUserDocumentForm = ({ onClose, id }) => {
 	const handleAddFile = () => {
 		inpFileRef.current.click();
 	};
+
 	const handleClickToDownload = file => {
 		const downloadLink = document.createElement('a');
 		downloadLink.href = URL.createObjectURL(file);
@@ -16,6 +17,7 @@ const AddUserDocumentForm = ({ onClose, id }) => {
 		downloadLink.click();
 		document.body.removeChild(downloadLink);
 	};
+
 	const handleSubmit = () => {
 		const formData = new FormData();
 		if (files.length === 0) alert('Пожалуйста добавьте файлы');
@@ -25,6 +27,7 @@ const AddUserDocumentForm = ({ onClose, id }) => {
 			else formData.append(`file${i}`, files[i]);
 		}
 	};
+
 	return (
 		<div>
 			<div className='user_documents'>
@@ -63,7 +66,7 @@ const AddUserDocumentForm = ({ onClose, id }) => {
 					ref={inpFileRef}
 				/>
 			</div>
-			<div className='perispol-btns'>
+			<div className='form-control-btns'>
 				<button className='btns-document btn' onClick={handleSubmit}>
 					Submite
 				</button>
