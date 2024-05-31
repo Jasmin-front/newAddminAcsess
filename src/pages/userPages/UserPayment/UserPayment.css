@@ -1,0 +1,35 @@
+.payment-main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.payment-main-title{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.payment-money{
+    width: 710px;
+    height: 69px;
+    border: 1px solid rgba(193, 193, 193, 1);
+    padding: 15px 10px 15px 10px;
+    gap: 10px;
+    border-radius: 15px;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38px;
+    text-align: left;
+
+}
+.payment-money:focus{
+    border: 1px solid rgba(193, 193, 193, 1);
+
+}
+.perispol-btns{
+    display: flex;
+    margin-top: 61px;
+    margin-left: 450px;
+    gap: 12px;
+}

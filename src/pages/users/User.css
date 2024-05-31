@@ -1,10 +1,10 @@
 .main-user {}
 
 .main-user-profile {
-    margin-top: 42px;
     width: 1241px;
     height: 328px;
     display: flex;
+    margin: 42px auto;
 }
 
 .main-user-images {

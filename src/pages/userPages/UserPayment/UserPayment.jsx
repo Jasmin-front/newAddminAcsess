@@ -12,7 +12,7 @@ const UserPayment = () => {
     const { open:open1, openModal:openModal1, closeModal:closeModal1 } = useModal();
 
     return (
-        <div>
+        <div className='payment-main'>
             <div className="user-document-main-container">
                 <div className="user-document-main-container-btn">
                     <span className="user-document-top-botom">Оплата</span>

@@ -2,9 +2,10 @@
     width: 1241px;
     height: 698px;
     border: 1px solid #C1C1C1;
-    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    border-radius: 20px;
 }
 
 .user-document-main-container-btn {
@@ -108,4 +109,5 @@
     display: flex;
     justify-content: flex-end;
     gap: 12px;
+    flex-direction: column;
 }

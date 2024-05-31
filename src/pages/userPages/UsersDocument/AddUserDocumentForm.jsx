@@ -64,7 +64,7 @@ const AddUserDocumentForm = ({ onClose, id }) => {
 					ref={inpFileRef}
 				/>
 			</div>
-			<div className='form-control-btns'>
+			<div className='perispol-btns'>
 				<button className='btns-document btn' onClick={handleSubmit}>
 					Submite
 				</button>

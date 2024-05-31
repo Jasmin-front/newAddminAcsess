@@ -8,7 +8,9 @@ const initialState = {
 	error: null,
 };
 
-export const getDataUsers = createAsyncThunk('getDataUsers', async (_, { dispatch, rejectWithValue }) => {
+export const getDataUsers = createAsyncThunk(
+	'getDataUsers',
+	async (_, { dispatch, rejectWithValue }) => {
 	try {
 		dispatch(setLoading(true));
 		const response = await fetch('https://656db53ebcc5618d3c23cb54.mockapi.io/todo/something/product');
@@ -21,7 +23,9 @@ export const getDataUsers = createAsyncThunk('getDataUsers', async (_, { dispatc
 	}
 });
 
-export const getDataUserId = createAsyncThunk('getDataUserId', async (userId, { dispatch, rejectWithValue }) => {
+export const getDataUserId = createAsyncThunk(
+	'getDataUserId',
+	async (userId, { dispatch, rejectWithValue }) => {
 	try {
 		dispatch(setLoading(true));
 		const response = await fetch(`https://656db53ebcc5618d3c23cb54.mockapi.io/todo/something/product/${userId}`);
@@ -34,7 +38,9 @@ export const getDataUserId = createAsyncThunk('getDataUserId', async (userId, { 
 	}
 });
 
-export const deleteUserid = createAsyncThunk('deleteUserid', async (userId, { dispatch, rejectWithValue }) => {
+export const deleteUserid = createAsyncThunk(
+	'deleteUserid',
+	async (userId, { dispatch, rejectWithValue }) => {
 	try {
 		dispatch(setLoading(true));
 		await axios.delete(`https://656db53ebcc5618d3c23cb54.mockapi.io/todo/something/product/${userId}`);
