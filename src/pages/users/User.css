@@ -3,8 +3,8 @@
 }
 
 .main-user-profile {
-    height: 328px;
     display: flex;
+    align-items: flex-start;
     margin: 42px auto;
     gap: 40px;
 }
@@ -17,40 +17,33 @@
 }
 
 .user-data-title {
-    height: 72px;
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 700;
-    line-height: 72px;
     text-align: left;
     color: #0E60AE;
-    font-family: sans-serif;
-    width: 550px;
+
 }
 
 .user-data-text {
-    width: 590px;
-    height: 62px;
-    padding: 10px;
+    padding: var(--spacing);
     gap: 10px;
     border-radius: 8px;
-    border: 1px;
-    background-color: #FFFFFF;
-    font-family: sans-serif;
-    font-size: 32px;
+    color: var(--color);
+    background-color: var(--card-bg);
+
+    font-size: 28px;
     font-weight: 500;
-    line-height: 72px;
     display: flex;
     align-items: center;
-
+    border: 1px solid var(--border-color);
 }
 
 .user-data-span {
-    font-size: 24px;
+    font-size: var(--large-font-size);
     font-weight: 500;
-    line-height: 72px;
     text-align: left;
-    font-family: sans-serif;
-    color: #000000;
+
+    color: var(--color);
     display: flex;
     gap: 38px;
 }
@@ -58,14 +51,11 @@
 .prfile-user-midlle {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 .profile-user-busket {
-    width: 36px;
-    height: 29px;
-    margin-top: 21px;
-    cursor: pointer;
+    margin-top: 3px;
 }
 
 .busket-edit {
@@ -73,13 +63,11 @@
 }
 
 .profile-user-status {
-    height: 69px;
     display: flex;
     align-items: center;
-    font-family: sans-serif;
-    font-size: 32px;
+
+    font-size: var(--large-font-size);
     font-weight: 700;
-    line-height: 43px;
-    color: #FFA011;
+    color: var(--primary-orange);
     justify-content: center;
 }

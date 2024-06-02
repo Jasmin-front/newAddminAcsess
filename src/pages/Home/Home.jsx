@@ -3,7 +3,7 @@ import './Home.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import './Home.css';
-import trash from '../../assets/Home/trash.png';
+import TrashIcon from '../../assets/trash.svg?react';
 import { deleteUserid, getDataUsers } from '../../entity/getDataUser/getInfoUserReducer.js';
 import { useModal } from '../../components/reusable/Modal/useModal.js';
 import { Link } from 'react-router-dom';
@@ -63,7 +63,7 @@ const Home = () => {
 			<Input />
 			<div className='home-container'>
 				{users.results?.map((item, index) => (
-					<Link to={`/users/${item.id}`} key={index} className={`card_main ${getStatusClass(item.status)}`}>
+					<Link to={`/users/${item.id}`} key={index} className={`card_main`}>
 						<div className='card_main-top'>
 							<span className='currentLastName'>
 								{item.currentLastName} {item.firstName} {item.birthLastName}
@@ -73,15 +73,15 @@ const Home = () => {
 						<div className='status-block'>
 							<p className='card_main-middle'>{item.country}</p>
 							<span className={`${getStatusClass(item.status)} card_status_user`}>{item.status}</span>
-							<img
-								src={trash}
-								className='trash'
+							<button
+								className='btn_icon'
 								onClick={e => {
 									setUserId(item.id);
 									openModalDelete(e);
 								}}
-								alt='trash'
-							/>
+							>
+								<TrashIcon />
+							</button>
 						</div>
 					</Link>
 				))}

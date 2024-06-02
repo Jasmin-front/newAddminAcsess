@@ -4,7 +4,9 @@ import { useForm, useFieldArray } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { sendDataUsers } from '../../entity/getDataUserReducer/getDataUserReducer.js';
-import ArrowDown from '../../assets/addAnketa/arrow-down.svg?react';
+import ArrowDown from '../../assets/arrow-down.svg?react';
+import { formatDateInput } from '../../utils.js';
+import TrashIcon from '../../assets/trash.svg?react';
 
 const initialData = {
 	birthLastName: '',
@@ -43,6 +45,7 @@ const initialData = {
 	},
 	image: null,
 };
+
 const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 	const {
 		register,
@@ -106,32 +109,50 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 		return formValid;
 	};
 
+	const handleFormatDateInput = e => {
+		e.target.value = formatDateInput(e.target.value);
+	};
+
 	const onSubmit = data => {
 		if (!validate(data)) {
 			return;
 		}
+
 		const formData = new FormData();
+
 		for (const key in data) {
-			if (formData.hasOwnProperty(key)) {
-				if (typeof formData[key] === 'object' && formData[key] !== null && !Array.isArray(formData[key])) {
-					for (const subKey in formData[key]) {
-						formData.append(`${key}[${subKey}]`, formData[key][subKey]);
+			if (data.hasOwnProperty(key)) {
+				if (key === 'image') {
+					// Добавляем изображение
+					formData.append('image', data[key]);
+				} else if (typeof data[key] === 'object' && data[key] !== null && !Array.isArray(data[key])) {
+					// Добавляем вложенные объекты
+					for (const subKey in data[key]) {
+						if (data[key].hasOwnProperty(subKey)) {
+							formData.append(`${key}[${subKey}]`, data[key][subKey]);
+						}
 					}
-				} else if (Array.isArray(formData[key])) {
-					formData[key].forEach((item, index) => {
+				} else if (Array.isArray(data[key])) {
+					// Добавляем массивы объектов
+					data[key].forEach((item, index) => {
 						for (const subKey in item) {
-							formData.append(`${key}[${index}][${subKey}]`, item[subKey]);
+							if (item.hasOwnProperty(subKey)) {
+								formData.append(`${key}[${index}][${subKey}]`, item[subKey]);
+							}
 						}
 					});
 				} else {
-					formData.append(key, formData[key]);
+					// Добавляем остальные типы данных
+					formData.append(key, data[key]);
 				}
 			}
 		}
-		dispatch(sendDataUsers({ data, reset }));
+
+		dispatch(sendDataUsers({ data: formData, reset }));
 	};
 
-	const handleCancel = () => {
+	const handleCancel = e => {
+		e.stopPropagation();
 		navigate('/home');
 		reset();
 	};
@@ -165,7 +186,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 						{previewImage ? (
 							<img src={previewImage} alt='Preview' className='preview-image' />
 						) : (
-							<span>Upload Image</span>
+							<span>Загрузить фотографию</span>
 						)}
 					</label>
 					<input
@@ -203,7 +224,8 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 						{...register('birthDate', { required: 'Дата рождения обязательна' })}
 						type='text'
 						className='input'
-						placeholder='Дата рождения'
+						placeholder='Дата рождения (ДД.ММ.ГГГГ)'
+						onChange={handleFormatDateInput}
 					/>
 					{errors.birthDate && <span className='error-span'>{errors.birthDate.message}</span>}
 				</div>
@@ -213,7 +235,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 						className='addAnketa_top-right-title-drop-down'
 						onClick={() => toggleInputs(setShowStatusOptions)}
 					>
-						{watch('status') || 'Status'}
+						{watch('status') || 'Статус'}
 						<ArrowDown className={showStatusOptions ? 'arrowDown' : ''} />
 					</button>
 					{showStatusOptions && (
@@ -245,59 +267,61 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 			<div className='addAnketa-bottom'>
 				<input
 					{...register('birthPlace', { required: 'Место рождения обязательно' })}
-					className='addAnketa-bottom-input'
+					className='input'
 					type='text'
-					placeholder='Место рождения                                                                                                             г.Ош'
+					placeholder='Место рождения (г. Ош)'
 				/>
 				{errors.birthPlace && <span className='error-span'>{errors.birthPlace.message}</span>}
 				<input
 					{...register('residence', { required: 'Место проживания обязательно' })}
-					className='addAnketa-bottom-input'
+					className='input'
 					type='text'
-					placeholder='Место проживания                                                                                                        г.Ош'
+					placeholder='Место проживания (г.Ош)'
 				/>
 				{errors.residence && <span className='error-span'>{errors.residence.message}</span>}
 				<input
 					{...register('passportNumber', { required: 'Номер паспорта обязателен' })}
-					className='addAnketa-bottom-input'
+					className='input'
 					type='text'
-					placeholder='Загранпаспорт                                                                                                             AC/PE'
+					placeholder='Загранпаспорт (AC/PE)'
 				/>
 				{errors.passportNumber && <span className='error-span'>{errors.passportNumber.message}</span>}
 				<input
 					{...register('passportIssueDate', { required: 'Дата выдачи паспорта обязательна' })}
-					className='addAnketa-bottom-input'
+					className='input'
 					type='text'
-					placeholder='Дата выдачи загранпаспорта                                                                                    23.03.23'
+					placeholder='Дата выдачи загранпаспорта (ДД.ММ.ГГГГ)'
+					onChange={handleFormatDateInput}
 				/>
 				{errors.passportIssueDate && <span className='error-span'>{errors.passportIssueDate.message}</span>}
 				<input
 					{...register('passportExpirationDate', { required: 'Дата окончания паспорта обязательна' })}
-					className='addAnketa-bottom-input'
+					className='input'
 					type='text'
-					placeholder='Дата окончания загранпаспорта                                                                               01.12.26'
+					placeholder='Дата окончания загранпаспорта (ДД.ММ.ГГГГ)'
+					onChange={handleFormatDateInput}
 				/>
 				{errors.passportExpirationDate && <span className='error-span'>{errors.passportExpirationDate.message}</span>}
 				<input
 					{...register('passportIssuingAuthority', { required: 'Орган выдачи паспорта обязателен' })}
-					className='addAnketa-bottom-input'
+					className='input'
 					type='text'
-					placeholder='Орган выдачи загранпаспорта                                                                                       SRS'
+					placeholder='Орган выдачи загранпаспорта (SRS)'
 				/>
 				{errors.passportIssuingAuthority && (
 					<span className='error-span'>{errors.passportIssuingAuthority.message}</span>
 				)}
 				<input
 					{...register('email', { required: 'Email обязателен' })}
-					className='addAnketa-bottom-input'
+					className='input'
 					type='email'
-					placeholder='Почтовый адрес                                                                                       azamat@gmail.com'
+					placeholder='Почтовый адрес (azamat@gmail.com)'
 				/>
 				{errors.email && <span className='error-span'>{errors.email.message}</span>}
 				<input
 					{...register('password', { required: 'Пароль обязателен' })}
-					className='addAnketa-bottom-input'
-					type='password'
+					className='input'
+					type='text'
 					placeholder='Пароль'
 				/>
 				{errors.password && <span className='error-span'>{errors.password.message}</span>}
@@ -306,18 +330,18 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 					<div className='addAnketa-drop-down-input-one'>
 						<input
 							{...register('height', { required: 'Рост обязателен' })}
-							className='addAnketa-bottom-input-one'
+							className='input'
 							type='text'
-							placeholder='Рост                                                180cm'
+							placeholder='Рост (180cm)'
 						/>
 						{errors.height && <span className='error-span'> {errors.height.message}</span>}
 					</div>
 					<div className='addAnketa-drop-down-input-one'>
 						<input
 							{...register('weight', { required: 'Вес обязателен' })}
-							className='addAnketa-bottom-input-one'
+							className='input'
 							type='text'
-							placeholder='Вес                                                    70kg'
+							placeholder='Вес (70kg)'
 						/>
 						{errors.weight && <span className='error-span'>{errors.weight.message}</span>}
 					</div>
@@ -357,7 +381,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 						<div>
 							{showFamilyStatusInputs && (
 								<div className='family-status-buttons'>
-									{['Холост', 'Замужем/Женат', 'Разведен/Разведена'].map(status => (
+									{['Холост/Не замужем', 'Замужем/Женат', 'Разведен(а)'].map(status => (
 										<button
 											key={status}
 											type='button'
@@ -373,35 +397,9 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 						</div>
 					</div>
 				</div>
-				<button className='addAnketa-bottom-input' type='button' onClick={() => toggleInputs(setShowChildrenInputs)}>
-					{showChildrenInputs ? 'Скрыть ' : 'Дети'}
-					<ArrowDown className={showChildrenInputs ? 'arrowDown' : ''} />
-				</button>
-				{showChildrenInputs && (
-					<>
-						{fields.map((child, index) => (
-							<div key={child.id} className='child-info'>
-								<span>Ребенок {index + 1}</span>
-								<input {...register(`children[${index}].name`)} className='child-input' type='text' placeholder='ФИО' />
-								<input
-									{...register(`children[${index}].birthDate`)}
-									className='child-input'
-									type='text'
-									placeholder='Дата рождения'
-								/>
-								<button type='button' onClick={() => remove(index)}>
-									Удалить ребенка
-								</button>
-							</div>
-						))}
-						<button type='button' className='btn-level' onClick={() => append({ name: '', birthDate: '' })}>
-							Добавить ребенка
-						</button>
-					</>
-				)}
 
 				<div className='addAnketa-drop-down-country'>
-					<div className='addAnketa-drop-down-input-end' onClick={() => toggleInputs(setShowCountryOptions)}>
+					<div className='addAnketa-drop-down-input' onClick={() => toggleInputs(setShowCountryOptions)}>
 						<span>{watch('country') ? `Страна: ${watch('country')}` : 'Страна'}</span>
 						<ArrowDown className={showCountryOptions ? 'arrowDown' : ''} />
 					</div>
@@ -440,7 +438,38 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 						{errors.country && <span className='error-message'>{errors.country.message}</span>}
 					</div>
 				</div>
-				<button className='addAnketa-bottom-input' type='button' onClick={() => toggleInputs(setShowParentsInputs)}>
+
+				<button className='addAnketa-drop-down-input' type='button' onClick={() => toggleInputs(setShowChildrenInputs)}>
+					{showChildrenInputs ? 'Скрыть ' : 'Дети'}
+					<ArrowDown className={showChildrenInputs ? 'arrowDown' : ''} />
+				</button>
+				{showChildrenInputs && (
+					<>
+						{fields.map((child, index) => (
+							<div key={child.id} className='child-info'>
+								<span>Ребенок {index + 1}</span>
+								<input {...register(`children[${index}].name`)} className='input' type='text' placeholder='ФИО' />
+								<input
+									{...register(`children[${index}].birthDate`)}
+									className='input'
+									type='text'
+									placeholder='Дата рождения'
+									onChange={e => {
+										e.target.value = formatDateInput(e.target.value);
+									}}
+								/>
+								<button type='button' className='btn_icon' onClick={() => remove(index)}>
+									<TrashIcon />
+								</button>
+							</div>
+						))}
+						<button type='button' className='btn-level' onClick={() => append({ name: '', birthDate: '' })}>
+							Добавить ребенка
+						</button>
+					</>
+				)}
+
+				<button className='addAnketa-drop-down-input' type='button' onClick={() => toggleInputs(setShowParentsInputs)}>
 					{showParentsInputs ? 'Скрыть ' : 'Родители'}
 					<ArrowDown className={showParentsInputs ? 'arrowDown' : ''} />
 				</button>
@@ -448,22 +477,24 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 					<div className='parents-info'>
 						<div className='parent'>
 							<span>Мать</span>
-							<input {...register('mother.name')} className='input-parent' type='text' placeholder='ФИО' />
-							<input {...register('mother.phone')} className='input-parent' type='text' placeholder='Номер телефона' />
+							<input {...register('mother.name')} className='input' type='text' placeholder='ФИО' />
+							<input {...register('mother.phone')} className='input' type='text' placeholder='Номер телефона' />
 							<input
 								{...register('mother.birthDate')}
-								className='input-parent'
+								onChange={handleFormatDateInput}
+								className='input'
 								type='text'
 								placeholder='Дата рождения'
 							/>
 						</div>
 						<div className='parent'>
 							<span>Отец</span>
-							<input {...register('father.name')} className='input-parent' type='text' placeholder='ФИО' />
-							<input {...register('father.phone')} className='input-parent' type='text' placeholder='Номер телефона' />
+							<input {...register('father.name')} className='input' type='text' placeholder='ФИО' />
+							<input {...register('father.phone')} className='input' type='text' placeholder='Номер телефона' />
 							<input
 								{...register('father.birthDate')}
-								className='input-parent'
+								onChange={handleFormatDateInput}
+								className='input'
 								type='text'
 								placeholder='Дата рождения'
 							/>
@@ -471,18 +502,19 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 					</div>
 				)}
 
-				<button className='addAnketa-bottom-input' type='button' onClick={() => toggleInputs(setShowFriendInputs)}>
+				<button className='addAnketa-drop-down-input' type='button' onClick={() => toggleInputs(setShowFriendInputs)}>
 					{showFriendInputs ? 'Скрыть' : 'Близкий друг'}
 					<ArrowDown className={showFriendInputs ? 'arrowDown' : 'arrow_Down-left'} />
 				</button>
 				{showFriendInputs && (
 					<div className='best-friend'>
 						<span>Близкий друг</span>
-						<input {...register('contact.name')} className='input-parent' type='text' placeholder='ФИО' />
-						<input {...register('contact.phone')} className='input-parent' type='text' placeholder='Номер телефона' />
+						<input {...register('contact.name')} className='input' type='text' placeholder='ФИО' />
+						<input {...register('contact.phone')} className='input' type='text' placeholder='Номер телефона' />
 						<input
 							{...register('contact.birthDate')}
-							className='input-parent'
+							onChange={handleFormatDateInput}
+							className='input'
 							type='text'
 							placeholder='Дата рождения'
 						/>
@@ -491,11 +523,11 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 			</div>
 
 			<div className='btns-end'>
-				<button className='submit-button btn' type='submit'>
-					Сохранить
-				</button>
 				<button className='submit-button btn' type='button' onClick={handleCancel}>
 					Отменить
+				</button>
+				<button className='submit-button btn' type='submit'>
+					Сохранить
 				</button>
 			</div>
 		</form>

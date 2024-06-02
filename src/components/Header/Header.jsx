@@ -28,7 +28,7 @@ const Header = ({ onLogout }) => {
 							className={`link-no-underline ${location.pathname === '/status' ? 'active-link' : ''}`}
 							to={'/status'}
 						>
-							Status
+							Статус
 						</Link>
 					</li>
 					<li>
@@ -36,7 +36,7 @@ const Header = ({ onLogout }) => {
 							className={`link-no-underline ${location.pathname === '/country' ? 'active-link' : ''}`}
 							to={'/country'}
 						>
-							Country
+							Страны
 						</Link>
 					</li>
 					<li>
