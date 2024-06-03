@@ -7,7 +7,7 @@ const initialState = {
 export const getUserData = createAsyncThunk(
     'getUser/getUserData',
     async (_,{dispatch}) => {
-        const response = await fetch('https://656db53ebcc5618d3c23cb54.mockapi.io/todo/something/product')
+        const response = await fetch('http://16.170.253.135/login/user/')
         const responseData = await response.json()
         dispatch(addLogin(responseData))
     }

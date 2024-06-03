@@ -1,15 +1,24 @@
 import {useSelector} from "react-redux";
 import './UserPayment.css'
 import '../UsersDocument/UserDocument.css'
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Modal from "../../../components/reusable/Modal/Modal.jsx";
 import AddUserPayment from "./AddUserPayment.jsx";
 import {useModal} from "../../../components/reusable/Modal/useModal.js";
+import {useRequest} from "../../../api/requester.js";
+import {useParams} from "react-router-dom";
 
 const UserPayment = () => {
+
+    const {usersId} = useParams()
+    const {request, data: payments,loading,error} = useRequest()
     const {user} = useSelector(state => state.getUsers)
     const { open, openModal, closeModal } = useModal();
     const { open:open1, openModal:openModal1, closeModal:closeModal1 } = useModal();
+    useEffect(() => {
+            request(`/workers/client/${usersId}/payments/`)
+    }, []);
+    console.log(payments.data.results.title )
 
     return (
         <div className='payment-main'>
@@ -19,6 +28,9 @@ const UserPayment = () => {
                     <button className="user-document-top-botom" onClick={openModal} id="user-document-top-botom">
                         +New
                     </button>
+                </div>
+                <div className="result_payment">
+
                 </div>
                 <Modal title={"Оплата"} show={open} onClose={closeModal}>
                     <AddUserPayment closeModal={closeModal}  />

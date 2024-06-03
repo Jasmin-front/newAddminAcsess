@@ -13,7 +13,7 @@ const UserDocument = () => {
 	const { user } = useSelector(state => state.getUsers);
 	const { usersId } = useParams();
 	const { open, openModal, closeModal } = useModal();
-	const { request, data: documents } = useRequest();
+	const { request, data: documents,loading,error } = useRequest();
 
 	useEffect(() => {
 		request(`/workers/client/${usersId}/documents/`);

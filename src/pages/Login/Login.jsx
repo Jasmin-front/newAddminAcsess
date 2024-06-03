@@ -19,7 +19,7 @@ const Login = ({ onLogin }) => {
 
 	const onSubmit = data => {
 		reset();
-		if (data.username === 'ars' && data.password === 'ars') {
+		if (data.username === 'Arslan05' && data.password === 'ZXC123hello') {
 			onLogin(true);
 		} else {
 			alert('Неправильный логин или пароль');

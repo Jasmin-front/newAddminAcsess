@@ -3,3 +3,13 @@
     flex-direction: column;
     align-items: center;
 }
+.status-main {
+    padding: 20px;
+}
+
+.main-status {
+    margin-top: 45px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
