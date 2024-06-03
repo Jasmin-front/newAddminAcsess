@@ -23,6 +23,7 @@ const AddUserDocumentForm = ({ onClose, id }) => {
 
 	const handleSubmit = async () => {
 		const formData = new FormData();
+		formData.append('title', name);
 		if (files.length === 0) alert('Пожалуйста добавьте файлы');
 		for (let i = 0; i < files.length; i++) {
 			if (i === 0) formData.append(`file`, files[i]);

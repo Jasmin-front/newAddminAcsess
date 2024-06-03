@@ -1,9 +1,15 @@
-header {}
+header {
+    position: sticky;
+    top: 0;
+    background: var(--main-bg);
+    z-index: 100;
+}
 
 .container.header-main {
     display: flex;
     justify-content: space-between;
-    padding: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .header-left {
@@ -33,17 +39,17 @@ header {}
 
 .link-no-underline {
     text-decoration: none;
-    font-size: 21px;
+    font-size: var(--large-font-size);
     font-weight: 600;
     line-height: 25.41px;
     text-align: left;
     color: var(--primary-blue);
-    font-family: sans-serif;
+
     transition: 0.2s;
 }
 
 .link-no-underline:hover {
-    color: #FFA011;
+    color: var(--primary-orange);
 }
 
 .header-right {
@@ -53,24 +59,24 @@ header {}
 }
 
 .header-btn {
-    font-size: 24px;
+    font-size: var(--large-font-size);
     font-weight: 600;
     line-height: 29.05px;
     text-align: left;
     color: var(--primary-blue-dark);
     border: none;
-    font-family: sans-serif;
+
     transition: 0.2s;
     cursor: pointer;
     background: transparent;
 }
 
 .header-btn:hover {
-    color: #FFA011;
+    color: var(--primary-orange);
 }
 
 .active-link {
-    color: #FFA011;
+    color: var(--primary-orange);
 }
 
 .together {

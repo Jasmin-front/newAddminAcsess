@@ -15,31 +15,29 @@
 
 .card_main {
     display: flex;
-    height: 132px;
-    padding: 38px 42px 38px 42px;
+    padding: 35px;
     gap: 10px;
     border-radius: 8px;
-    background: #FFFFFF;
+    background: var(--card-bg);
     align-items: center;
     justify-content: space-between;
     gap: 50px;
     cursor: pointer;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--color);
 }
 
 .card_main-top {
     display: flex;
     flex-direction: column;
     gap: 7px;
-    width: 350px;
 }
 
 .card_main-middle {
     text-align: center;
     font-size: 21px;
     font-weight: 400;
-    line-height: 25.41px;
     text-align: center;
-    color: #000000;
 }
 
 .card_main-bottom {
@@ -48,21 +46,16 @@
 }
 
 .currentLastName {
-    font-family: Inter;
     font-size: 21px;
     font-weight: 600;
-    line-height: 25.41px;
     text-align: left;
-    color: #000000;
 }
 
 .birthDate {
-    font-family: Inter;
     font-size: 21px;
     font-weight: 400;
     line-height: 25.41px;
     text-align: left;
-    color: #000000;
 }
 
 .waiting {
@@ -135,26 +128,6 @@
     display: flex;
     align-items: center;
     gap: 100px;
-}
-
-.trash {
-    width: 27px;
-    height: 27px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.addAnketa-drop-down {
-    display: flex;
-    justify-content: space-between;
-}
-
-.addAnketa-drop-down-input {
-    width: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
 }
 
 .english-level-buttons {

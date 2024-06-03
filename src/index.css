@@ -6,13 +6,24 @@
   box-sizing: border-box;
 }
 
-
+:root {
+  --spacing: 15px;
+  --large-font-size: 26px;
+  --primary-orange: #FFA011;
+  --border-color: #C1C1C1;
+}
 
 .app_light {
   --color: #000000;
   --main-bg: #F1F6FC;
   --primary-blue: #0E60AE;
   --primary-blue-dark: #00509D;
+  --card-bg: #FFF;
+  --card-border: #000;
+  --nav-bg: #FFF;
+  --nav-color: #000;
+  --nav-border: #C1C1C1;
+  --nav-active: #0E60AE;
 }
 
 .app_dark {
@@ -20,6 +31,12 @@
   --main-bg: #1E1F20;
   --primary-blue: #FFF;
   --primary-blue-dark: #FFF;
+  --card-bg: #2D2A2A;
+  --card-border: #F1F6FC;
+  --nav-bg: #2D2A2A;
+  --nav-color: #837D7D;
+  --nav-border: #C1C1C1;
+  --nav-active: #F1F6FC;
 }
 
 .app_dark,
@@ -36,24 +53,24 @@ body {
 }
 
 .container {
-  padding: 0 40px;
+  padding: 0 150px;
 }
 
 .btn {
-  background-color: #FFFFFF;
-  padding: 10px;
+  background-color: var(--main-bg);
+  padding: var(--spacing);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-radius: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   font-family: Inter;
-  font-size: 30px;
+  font-size: var(--large-font-size);
   font-weight: 400;
   line-height: 77.45px;
-  color: black;
-  transition: 0.5s;
+  color: var(--color);
+  transition: 0.2s;
   height: 60px;
   cursor: pointer;
 }
@@ -73,7 +90,7 @@ body {
   cursor: pointer;
   color: white;
   font-family: Inter;
-  font-size: 32px;
+  font-size: var(--large-font-size);
   font-weight: 400;
   line-height: 38px;
   border: 1px solid rgba(193, 193, 193, 1);
@@ -95,7 +112,11 @@ input {
 
 .btn_icon {
   all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: fit-content;
   height: fit-content;
   cursor: pointer;
+  color: var(--color);
 }

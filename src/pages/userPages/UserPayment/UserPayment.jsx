@@ -18,7 +18,6 @@ const UserPayment = () => {
     useEffect(() => {
             request(`/workers/client/${usersId}/payments/`)
     }, []);
-    console.log(payments.data.results.title )
 
     return (
         <div className='payment-main'>

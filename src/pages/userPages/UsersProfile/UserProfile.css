@@ -3,24 +3,22 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 10px;
 }
 
 .field {
-    height: 104px;
-    padding: 16px 35px 16px 25px;
+    padding: var(--spacing);
     border: 1px;
-    background: #FFFFFF;
+    background: var(--card-bg);
     display: flex;
     align-items: center;
     border-radius: 8px;
     margin-bottom: 8px;
     justify-content: space-between;
-    font-family: sans-serif;
-    font-size: 32px;
+    border: 1px solid var(--border-color);
+    font-size: 20px;
     font-weight: 500;
-    line-height: 72px;
-
+    color: var(--color);
 }
 
 .content {
