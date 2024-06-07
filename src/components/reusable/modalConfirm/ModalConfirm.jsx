@@ -8,10 +8,10 @@ const ModalConfirm = ({ title, closeModal, confirm }) => {
 					<p>{title}</p>
 				</div>
 				<div className='delete-btns'>
-					<button onClick={closeModal} className='btn-delete'>
+					<button onClick={closeModal} className='btn btn_without_theme btn-delete'>
 						Нет
 					</button>
-					<button onClick={confirm} className='btn-delete'>
+					<button onClick={confirm} className='btn btn_without_theme btn-delete'>
 						Да
 					</button>
 				</div>

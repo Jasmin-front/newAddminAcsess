@@ -1,9 +1,23 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+export const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const requester = axios.create({ baseURL: BASE_URL });
+
+requester.interceptors.request.use(async config => {
+	return config;
+});
+
+requester.interceptors.response.use(async config => {
+	if (config.config.method.toLowerCase() !== 'get') {
+		if (config.data.message) toast.success(config.data.message);
+		if (config.data.error) toast.error(config.data.error);
+	}
+
+	return config;
+});
 
 export const useRequest = (requestType = 'get') => {
 	const [data, setData] = useState({
@@ -24,5 +38,5 @@ export const useRequest = (requestType = 'get') => {
 			setData(prev => ({ ...prev, loading: false }));
 		}
 	};
-	return { data, setData, request };
+	return { ...data, setData, request };
 };

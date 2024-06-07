@@ -1,22 +1,24 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import together from '../../assets/header/Together.png';
 import './header.css';
 import { useModal } from '../reusable/Modal/useModal.js';
 import ModalConfirm from '../reusable/modalConfirm/ModalConfirm.jsx';
 import ThemeBtn from '../../features/themeChanger/ThemeBtn.jsx';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../entity/loginReducer/loginReducer.js';
 
-const Header = ({ onLogout }) => {
+const Header = () => {
 	const location = useLocation();
-	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
 	const { open, closeModal, openModal } = useModal();
 	const handleLogout = () => {
-		onLogout();
-		navigate('/');
+		dispatch(logout());
 	};
 
 	return (
 		<header>
-			<ul className='container header-main'>
+			<ul className='header-main'>
 				<div className='header-left'>
 					<Link className={`link-no-underline ${location.pathname === '/' ? 'active-link' : ''}`} to={'/'}>
 						<img className='together' src={together} alt='' />

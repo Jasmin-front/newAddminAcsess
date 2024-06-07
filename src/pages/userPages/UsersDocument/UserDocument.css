@@ -1,9 +1,10 @@
 .user-document-main-container {
     min-height: 300px;
-    border: 1px solid #C1C1C1;
+    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     border-radius: 20px;
+    background: var(--profile-content-bg);
 }
 
 .user-document-main-container-btn {
@@ -17,22 +18,19 @@
 }
 
 .user-document-top-botom {
-    height: 56px;
     border-radius: 16px;
-    border: 1px solid #C1C1C1;
+    border: 1px solid var(--border-color);
     font-family: Inter;
     font-size: var(--large-font-size);
     font-weight: 400;
-    line-height: 38px;
-    text-align: left;
     box-shadow: 0px 4px 4px 0px #00000040;
-    background-color: white;
+    background-color: var(--card-bg);
+    color: var(--color);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
     transition: 0.2s;
-
 }
 
 #user-document-top-botom:hover {
@@ -85,33 +83,18 @@
     margin-bottom: 50px;
 }
 
-.user_document_btn {
-    all: unset;
-    padding: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #2750AE;
-    cursor: pointer;
-}
-
-.user_document_btn:hover {
-    background: #00509D;
-}
-
-.user_form_control_btn {
-    width: fit-content;
-}
-
 .form-control-btns {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 12px;
-    flex-direction: column;
 }
 
 .user-document-content {
     padding: 20px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .user-document-holder {
@@ -120,6 +103,7 @@
     flex-direction: column;
     gap: 20px;
     border: 1px solid #C1C1C1;
+    color: var(--color);
 }
 
 .user-document-top {
@@ -136,4 +120,18 @@
     font-family: Inter;
     font-size: var(--large-font-size);
     font-weight: 400;
+}
+
+.user_document_btn {
+    all: unset;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2750AE;
+    cursor: pointer;
+}
+
+.user_document_btn:hover {
+    background: #00509D;
 }

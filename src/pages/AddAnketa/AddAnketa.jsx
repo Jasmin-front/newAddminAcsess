@@ -8,40 +8,82 @@ import ArrowDown from '../../assets/arrow-down.svg?react';
 import { formatDateInput } from '../../utils.js';
 import TrashIcon from '../../assets/trash.svg?react';
 
+// const initialData = {
+// 	birthLastName: '',
+// 	currentLastName: '',
+// 	firstName: '',
+// 	birthDate: '',
+// 	birthPlace: '',
+// 	residence: '',
+// 	passportNumber: '',
+// 	passportIssueDate: '',
+// 	passportExpirationDate: '',
+// 	passportIssuingAuthority: '',
+// 	email: '',
+// 	password: '',
+// 	height: '',
+// 	weight: '',
+// 	status: '',
+// 	englishLevel: '',
+// 	familyStatus: '',
+// 	country: '',
+// 	children: [],
+// 	mother: {
+// 		name: '',
+// 		phone: '',
+// 		birthDate: '',
+// 	},
+// 	father: {
+// 		name: '',
+// 		phone: '',
+// 		birthDate: '',
+// 	},
+// 	contact: {
+// 		name: '',
+// 		phone: '',
+// 		birthDate: '',
+// 	},
+// 	image: null,
+// };
 const initialData = {
-	birthLastName: '',
-	currentLastName: '',
-	firstName: '',
-	birthDate: '',
-	birthPlace: '',
-	residence: '',
-	passportNumber: '',
-	passportIssueDate: '',
-	passportExpirationDate: '',
-	passportIssuingAuthority: '',
-	email: '',
-	password: '',
-	height: '',
-	weight: '',
-	status: '',
-	englishLevel: '',
-	familyStatus: '',
-	country: '',
-	children: [],
+	birthLastName: 'Smith',
+	currentLastName: 'Smith',
+	firstName: 'John',
+	birthDate: '1990-01-01',
+	birthPlace: 'New York',
+	residence: 'New York',
+	passportNumber: '1234567890',
+	passportIssueDate: '2010-01-01',
+	passportExpirationDate: '2025-01-01',
+	passportIssuingAuthority: 'USA',
+	email: 'john.smith@example.com',
+	password: 'password123',
+	height: '180',
+	weight: '70',
+	status: 'Ждет визу',
+	englishLevel: 'Новичок',
+	familyStatus: 'Холост/Не замужем',
+	country: 'USA',
+	children: [
+		{
+			name: 'Emily',
+			birthDate: '2012-02-02',
+		},
+	],
 	mother: {
-		name: '',
-		phone: '',
-		birthDate: '',
+		name: 'Jane Smith',
+		phone: '555-1234',
+		birthDate: '1960-03-03',
 	},
 	father: {
-		name: '',
-		phone: '',
-		birthDate: '',
+		name: 'John Smith Sr.',
+		phone: '555-5678',
+		birthDate: '1950-04-04',
 	},
 	contact: {
-		name: '',
-		phone: '',
-		birthDate: '',
+		name: 'Jane Doe',
+		phone: '555-9012',
+		birthDate: '1980-05-05',
 	},
 	image: null,
 };
@@ -148,7 +190,7 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 			}
 		}
 
-		dispatch(sendDataUsers({ data: formData, reset }));
+		dispatch(sendDataUsers(formData));
 	};
 
 	const handleCancel = e => {
@@ -535,3 +577,14 @@ const AddAnketa = ({ isEdit = true, initialFormData = initialData }) => {
 };
 
 export default AddAnketa;
+
+const formdata = new FormData();
+
+// const data = {
+// 	mother: {
+// 		name: '',
+// 		date: 'string'
+// 	}
+// }
+
+// formdata.append('mother.name','ffafas')

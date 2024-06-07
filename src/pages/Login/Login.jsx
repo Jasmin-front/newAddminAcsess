@@ -1,15 +1,16 @@
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import './Login.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserData } from '../../entity/loginReducer/loginReducer';
+import { loginPost } from '../../entity/loginReducer/loginReducer';
+import Button from '../../components/reusable/Button/Button';
 
-const Login = ({ onLogin }) => {
-	const disptach = useDispatch();
-	useEffect(() => {
-		disptach(getUserData());
-	}, []);
-	const login = useSelector(state => state.userData.user);
+const initial = {
+	username: 'Erkutbek',
+	password: 'MF_deve1op',
+};
+const Login = () => {
+	const dispatch = useDispatch();
+	const { loading, error } = useSelector(state => state.userData);
 	const {
 		register,
 		handleSubmit,
@@ -18,35 +19,35 @@ const Login = ({ onLogin }) => {
 	} = useForm();
 
 	const onSubmit = data => {
-		reset();
-		if (data.username === 'Arslan05' && data.password === 'ZXC123hello') {
-			onLogin(true);
-		} else {
-			alert('Неправильный логин или пароль');
-		}
+		dispatch(loginPost(data));
 	};
-
+	if (error) console.error(error);
 	return (
 		<div className='login'>
 			<form className='login-main' onSubmit={handleSubmit(onSubmit)}>
 				<div className='logine-title'>
 					<h4 className='login-text'>Together Recruitment</h4>
 				</div>
-				<input
-					type='text'
-					className='login-input'
-					placeholder='Username'
-					{...register('username', { required: true })}
-				/>
-				<input
-					type='password'
-					className='login-input'
-					placeholder='Password'
-					{...register('password', { required: true })}
-				/>
-				<button className='login-btn' type='submit'>
+				<div className='login-input-wrapper'>
+					<input
+						type='text'
+						className='input'
+						placeholder='Имя пользователя'
+						{...register('username', { required: true })}
+						defaultValue={initial.username}
+					/>
+					<input
+						defaultValue={initial.password}
+						type='password'
+						className='input'
+						placeholder='Пароль'
+						{...register('password', { required: true })}
+					/>
+					{error && <p style={{ color: 'red' }}>{typeof error === 'string' ? error : JSON.stringify(error)}</p>}
+				</div>
+				<Button className='btn login-btn' isLoading={loading} type='submit'>
 					Войти
-				</button>
+				</Button>
 			</form>
 		</div>
 	);

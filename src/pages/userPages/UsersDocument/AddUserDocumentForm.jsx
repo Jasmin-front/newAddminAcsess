@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import DownloadIcon from '../../../assets/download.svg?react';
 import TrashIcon from '../../../assets/trash.svg?react';
 import { useRequest } from '../../../api/requester';
-const AddUserDocumentForm = ({ onClose, id }) => {
+const AddUserDocumentForm = ({ onClose, id, data }) => {
 	const inpFileRef = useRef();
 	const [name, setName] = useState('');
 	const [files, setFiles] = useState([]);
@@ -26,10 +26,10 @@ const AddUserDocumentForm = ({ onClose, id }) => {
 		formData.append('title', name);
 		if (files.length === 0) alert('Пожалуйста добавьте файлы');
 		for (let i = 0; i < files.length; i++) {
-			if (i === 0) formData.append(`file`, files[i]);
-			else formData.append(`file${i}`, files[i]);
+			formData.append(`uploaded_files[${i}]`, files[i]);
 		}
-		await request(`/workers/client/${id}/documents/`, formData);
+		await request(`/workers/client/${id}/documents/upload/`, formData);
+		onClose();
 	};
 
 	return (
@@ -62,8 +62,9 @@ const AddUserDocumentForm = ({ onClose, id }) => {
 						</button>
 					</div>
 				))}
-				<button onClick={handleAddFile} className='btn_grandient user_form_control_btn'>
-					+add
+
+				<button style={{ '--card-bg': 'transparent', '--color': '#000' }} onClick={handleAddFile} className='btn'>
+					Добавить файл
 				</button>
 				<input
 					type='file'
@@ -77,11 +78,19 @@ const AddUserDocumentForm = ({ onClose, id }) => {
 				/>
 			</div>
 			<div className='form-control-btns'>
-				<button className='btns-document btn' onClick={handleSubmit}>
-					Submite
+				<button
+					style={{ '--card-bg': 'transparent', '--color': '#000' }}
+					onClick={onClose}
+					className='btns-document btn'
+				>
+					Отменить
 				</button>
-				<button onClick={onClose} className='btns-document btn'>
-					Cancel
+				<button
+					style={{ '--card-bg': 'transparent', '--color': '#000' }}
+					className='btns-document btn'
+					onClick={handleSubmit}
+				>
+					Сохранить
 				</button>
 			</div>
 		</div>
