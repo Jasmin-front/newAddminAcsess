@@ -1,0 +1,109 @@
+.card-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+  gap: 35px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+
+.card_main {
+  display: flex;
+  padding: 35px;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--card-border);
+  color: var(--color);
+  text-decoration: none;
+}
+
+.card_main:hover,
+.card_main:focus {
+  text-decoration: none;
+}
+
+.card_status_user {
+  min-width: 200px;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 21px;
+  font-weight: 500;
+}
+
+
+.card_main-top {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.currentLastName {
+  font-size: 21px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.birthDate {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 25.41px;
+  text-align: left;
+}
+
+.card_main-middle {
+  text-align: center;
+  font-size: 21px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.status-block {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.waiting {
+  color: #0E60AE;
+}
+
+.departed {
+  color: #837D7D;
+}
+
+.new {
+  color: #58D61D;
+}
+
+.visa-queue {
+  color: #5292F480;
+}
+
+.invited {
+  color: #0E60AE;
+}
+
+
+.refusal {
+  color: red;
+}
+
+.return {
+  color: #cccc3a;
+}
+
+.get_visa {
+  color: #58D61D;
+}

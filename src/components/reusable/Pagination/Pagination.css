@@ -1,0 +1,37 @@
+.react_pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+}
+
+.react_pagination li:not(.break) {
+  /* border: 1px solid var(--border-color); */
+  border-radius: 12px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #FFF;
+  background: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react_pagination li:not(.break) a {
+  padding: 15px 20px;
+  min-width: 60px;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react_pagination li:not(.break):hover,
+li.react_pagination_active:not(.break) {
+  background: var(--primary-orange);
+}
+
+.react_pagination_disabled {
+  opacity: 0.25;
+}

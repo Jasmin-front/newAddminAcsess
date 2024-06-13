@@ -1,0 +1,114 @@
+.contract {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding-bottom: 100px;
+  color: var(--color);
+}
+
+.contract_textarea {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+
+.contract_textarea::-webkit-scrollbar {
+  display: none;
+}
+
+/* .contract_textarea::-webkit-scrollbar-thumb {
+  background: #CAC9D8;
+  border-radius: 20px;
+} */
+
+.contract_textarea:focus {
+  outline: none;
+}
+
+.btn_contract {
+  align-self: flex-end;
+  color: var(--color);
+}
+
+.contract_client {
+  padding-bottom: 100px;
+}
+
+.contract_client_logo {
+  width: 100%;
+  object-fit: contain;
+  aspect-ratio: 4/1;
+}
+
+.contract_client_p {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 55px;
+  white-space: break-spaces;
+}
+
+.contract_client_form {
+  margin-top: 60px;
+  background: #174871;
+  padding: 50px 100px;
+  width: 100%;
+  border-radius: 16px;
+}
+
+.contract_client_form_checkbox_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contract_client_form_checkbox_wrapper p {
+  font-size: 20px;
+  color: #FFF;
+}
+
+
+.contract_client_form_checkbox_wrapper input {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  background: #D9D9D9;
+}
+
+.contract_client_form h3 {
+  margin: 50px 0 20px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFF;
+  text-align: center;
+}
+
+.sigCanvas {
+  width: 100%;
+  height: 400px;
+  background: #F5F3F3;
+  color: #000;
+  border-radius: 8px;
+}
+
+.contract_client_form_action_btns {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.contract_client_sign_img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.contract_link {
+  font-size: var(--large-font-size);
+  color: var(--primary-blue);
+  text-align: start;
+  align-self: flex-start;
+}

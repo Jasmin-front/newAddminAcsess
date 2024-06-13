@@ -1,0 +1,317 @@
+.addAnketa {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 50px 0 150px;
+    gap: 50px;
+}
+
+.addAnketa_top {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.addAnketa_top-left {
+    height: fit-content;
+    border-radius: 34px;
+    background: var(--avatar);
+    position: relative;
+}
+
+.label-file {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 274px;
+    height: 272px;
+    text-align: center;
+    position: relative;
+    color: var(--color);
+}
+
+.preview-image {
+    width: 274px;
+    height: 272px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+}
+
+.addAnketa_top-middle {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+
+.addAnketa_top-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.addAnketa_top-right-title-drop-down {
+    width: 279px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing);
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: var(--large-font-size);
+    font-weight: 700;
+    text-align: left;
+    color: var(--primary-orange);
+    background-color: var(--card-bg);
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+
+.addAnketa_top-right-title-drop-down svg {
+    flex-shrink: 0;
+}
+
+.status-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 279px;
+}
+
+.btn-status {
+    background-color: var(--card-bg);
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: 0.2s;
+    font-size: 20px;
+    text-align: left;
+    color: var(--color);
+}
+
+.btn-status:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+#image-upload {
+    display: none;
+}
+
+.addAnketa-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.addAnketa-drop-down-input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing);
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-family: "Inter";
+    font-size: var(--large-font-size);
+    font-weight: 500;
+    text-align: left;
+    color: var(--color);
+    background-color: var(--card-bg);
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+
+.english-level-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-level {
+    width: 100%;
+    padding: var(--spacing);
+    gap: 8px;
+    border-radius: 8px;
+    font-size: 20px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    transition: 0.2s;
+    color: var(--color);
+    background-color: var(--card-bg);
+}
+
+.btn-level:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.family-status-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.parents-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 var(--spacing);
+}
+
+.parent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: var(--large-font-size);
+    color: var(--color);
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+}
+
+.btns-end {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.submit-button {
+    background-color: #FFFFFF;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    font-family: "Inter";
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 77.45px;
+    color: black;
+    transition: 0.2s;
+    height: 60px;
+}
+
+.submit-button:hover {
+    background-color: orange;
+}
+
+.best-friend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: var(--large-font-size);
+    color: var(--color);
+    padding: 0 var(--spacing);
+}
+
+.arrowDown {
+    transition: 0.2s;
+}
+
+.arrowDown {
+    transform: rotate(180deg);
+}
+
+.arrow_Down-left {
+    width: 24px;
+    height: 24px;
+}
+
+.error-span {
+    color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 17px;
+    margin-top: 5px;
+}
+
+.addAnketa-drop-down-one {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.addAnketa-drop-down-input-one {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.addAnketa-bottom-input-one {
+    width: 600px;
+    height: 77px;
+    padding: 16px 45px 16px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: "Inter";
+    font-size: var(--large-font-size);
+    font-weight: 500;
+    line-height: 72px;
+    text-align: left;
+}
+
+.btn-level-one {
+    min-width: 200px;
+    padding: var(--spacing);
+    gap: 8px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    transition: 0.2s;
+    color: var(--color);
+    background-color: var(--card-bg);
+}
+
+.btn-level-one:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.country-buttons {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.addAnketa-drop-down {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.addAnketa-drop-down-country {
+    display: flex;
+    flex-direction: column;
+}
+
+.child-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.child-info span {
+    white-space: nowrap;
+    font-size: var(--large-font-size);
+    color: var(--color);
+    padding: 0 var(--spacing);
+}

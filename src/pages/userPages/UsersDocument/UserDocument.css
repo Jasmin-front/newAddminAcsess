@@ -1,0 +1,129 @@
+.user-document-main-container {
+    min-height: 300px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background: var(--profile-content-bg);
+}
+
+.user-document-main-container-btn {
+    display: flex;
+    height: 84px;
+    border-bottom: 1px solid #C1C1C1;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+}
+
+.user-document-top-botom {
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.user_document_input {
+    height: 69px;
+    padding: 15px 10px 15px 10px;
+    border-radius: 8px;
+    border: 1px solid #C1C1C1;
+    font-family: "Inter";
+    font-size: var(--large-font-size);
+    font-weight: 400;
+    line-height: 38.73px;
+    text-align: left;
+}
+
+.user-document-top-botom-unset:hover {
+    background-color: var(--card-bg) !important;
+    color: var(--color) !important;
+}
+
+.user_document_holder {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user_document_holder_input {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #C1C1C1;
+    overflow: hidden;
+    height: 60px;
+    max-width: 550px;
+    width: 100%;
+}
+
+.user_document_holder_input div {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18.2px;
+    letter-spacing: 0.03em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 12px;
+    flex: 1;
+}
+
+.user_documents {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.form-control-btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.user-document-content {
+    padding: 20px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-document-holder {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #C1C1C1;
+    color: var(--color);
+}
+
+.user-document-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-document-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.user-document-text {
+    font-family: "Inter";
+    font-size: var(--large-font-size);
+    font-weight: 400;
+}
+
+.user_document_btn {
+    all: unset;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2750AE;
+    cursor: pointer;
+}
+
+.user_document_btn:hover {
+    background: #00509D;
+}

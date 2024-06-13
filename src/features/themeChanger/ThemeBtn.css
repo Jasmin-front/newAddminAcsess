@@ -1,0 +1,17 @@
+.moon-block {
+  all: unset;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  --color: #fefe00;
+}
+
+.app_dark .moon-block,
+.moon-block:hover {
+  color: var(--color);
+}
+
+.app_dark .moon-block svg,
+.moon-block:hover svg {
+  fill: var(--color);
+}

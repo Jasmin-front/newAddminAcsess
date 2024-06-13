@@ -1,0 +1,20 @@
+.header-profile-main {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.header-profile {
+    padding: var(--spacing);
+    color: var(--nav-color);
+    text-decoration: none;
+    background-color: var(--nav-bg);
+    border-radius: 8px;
+    border: 1px solid var(--nav-border);
+}
+
+.active-profile,
+.header-profile:hover {
+    color: var(--nav-active);
+
+}

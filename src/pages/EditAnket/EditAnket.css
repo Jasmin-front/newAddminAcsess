@@ -1,0 +1,13 @@
+.edit-main {
+    border-radius: 30px;
+}
+
+.edit-main-top {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.arrowLeft {
+    cursor: pointer;
+}

@@ -1,0 +1,31 @@
+.country-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.country-btn {
+    background: #5292F480;
+    color: #363D45;
+    padding: 25px 70px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: var(--large-font-size);
+    font-weight: 600;
+}
+
+.country-btn:hover,
+.country-btn-active {
+    background: var(--primary-blue);
+    color: #FFF;
+}
+
+.basic-select {
+    max-width: 925px;
+    width: 100%;
+}
+
+div.select__indicator {
+    color: var(--color);
+}
